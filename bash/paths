@@ -1,2 +1,16 @@
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+# local Home
+PATH="$HOME/bin:$PATH"
+# gwt
+PATH="$HOME/bin/gwt:$PATH"
+# Macports
+PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# erlware
+PATH="/usr/local/erlware/bin:$PATH"
+# rabbitmq
+PATH="/Users/jney/repos/rabbit/rabbitmq-server/scripts:$PATH"
+# postgresql
+PATH="/opt/local/lib/postgresql83/bin:$PATH"
+# Other paths
+PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
+
+export PATH
