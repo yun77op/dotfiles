@@ -29,6 +29,7 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 # rails
 alias sc='script/console'
 alias ss='script/server'
+alias pss='RAILS_ENV=production ss'
 alias sg='script/generate'
 alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
@@ -39,9 +40,20 @@ alias rst='touch tmp/restart.txt'
 # commands starting with % for pasting from web
 alias %=' '
 
+# get lines number for a file
+alias lines='cat $1 | wc -l'
+
 # basic remap command
+alias emacs='open -a /Applications/Emacs.app'
 alias more='less'
 alias vi='vim'
+alias vlc='open -a /Applications/VLC.app'
+
+# windows remap commands
+alias cls='clear'
+alias copy='cp'
+alias dir='ll'
+alias move='mv'
 
 # Mozilla rhino on : 
 # found at ftp://ftp.mozilla.org/pub/mozilla.org/js
@@ -51,12 +63,12 @@ alias js="java org.mozilla.javascript.tools.shell.Main"
 # Apache
 alias apache='sudo /opt/local/apache2/bin/apachectl'
 
+# Mysql
+alias start_mysql='cd /opt/local ; sudo /opt/local/lib/mysql5/bin/mysqld_safe'
+
 # JRuby env
 alias jruby.env="source ~/.jruby.env"
 
 # Ruby19 env
 alias ruby19="$HOME/bin/ruby19/bin/ruby"
 alias ruby19.env="source ~/.ruby19.env"
-
-# Gem env for greenwala
-alias greenwala.env="source ~/.greenwala.env"

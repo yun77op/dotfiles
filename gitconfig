@@ -12,3 +12,6 @@
 	editor = mate -w
 [apply]
 	whitespace = nowarn
+[github]
+	user = jney
+	token = 98c4cf77c19d45d240b77c6a5ec1ea64
