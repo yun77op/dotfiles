@@ -50,12 +50,6 @@ alias more='less'
 alias vi='vim'
 alias vlc='open -a /Applications/VLC.app'
 
-# windows remap commands
-alias cls='clear'
-alias copy='cp'
-alias dir='ll'
-alias move='mv'
-
 # Mozilla rhino on : 
 # found at ftp://ftp.mozilla.org/pub/mozilla.org/js
 # cp js.jar to ~/Library/Java/Extensions
