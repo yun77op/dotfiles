@@ -61,11 +61,22 @@ alias move='mv'
 # cp js.jar to ~/Library/Java/Extensions
 alias js="java org.mozilla.javascript.tools.shell.Main"
 
+# clojure
+alias clojure.console="rlwrap java clojure.lang.Repl"
+alias clojure.script="java clojure.lang.Script"
+
 # Apache
 alias apache='sudo /opt/local/apache2/bin/apachectl'
 
 # Mysql
-alias start_mysql='cd /opt/local ; sudo /opt/local/lib/mysql5/bin/mysqld_safe'
+alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
+alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
+
+# Postgresql
+alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D /opt/local/var/db/postgresql83/defaultdb'"
+alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
+alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
+alias pg.stop="sudo su postgres -c 'pg_ctl stop -D /opt/local/var/db/postgresql83/defaultdb'"
 
 # JRuby env
 alias jruby.env="source ~/.jruby.env"
