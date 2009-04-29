@@ -60,7 +60,7 @@ alias clojure.console="rlwrap java clojure.lang.Repl"
 alias clojure.script="java clojure.lang.Script"
 
 # Apache
-alias apache='sudo /opt/local/apache2/bin/apachectl'
+alias apache.start='sudo /opt/local/apache2/bin/apachectl'
 
 # Mysql
 alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
