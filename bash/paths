@@ -12,5 +12,10 @@ PATH="/Users/jney/repos/rabbit/rabbitmq-server/scripts:$PATH"
 PATH="/opt/local/lib/postgresql83/bin:$PATH"
 # Other paths
 PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
+# liftweb path vars
+export M2_HOME=/Applications/liftweb-0.11/apache-maven
+export M2=$M2_HOME/bin
+export MAVEN_OPTS="-noverify -javaagent:/Applications/liftweb-0.11/java-rebel/javarebel.jar"
+export PATH=$M2:$PATH
 
 export PATH
