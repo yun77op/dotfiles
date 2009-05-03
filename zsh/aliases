@@ -66,7 +66,7 @@ alias apache.start='sudo /opt/local/apache2/bin/apachectl'
 alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
 alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
 
-# Postgresql
+# PostgreSQL
 alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D /opt/local/var/db/postgresql83/defaultdb'"
 alias pg.restart="sudo su postgres -c 'pg_ctl restart -D /opt/local/var/db/postgresql83/defaultdb -l /opt/local/var/log/postgresql83/logfile'"
 alias pg.start="sudo su postgres -c 'pg_ctl start -D /opt/local/var/db/postgresql83/defaultdb  -l /opt/local/var/log/postgresql83/logfile'"
