@@ -1,12 +1,15 @@
 # CLASSPATH
-export CLASSPATH_HOME=$HOME/lib/
-# clojure
-export CLOJURE_HOME=$CLASSPATH_HOME/clojure
+export CLASSPATH_HOME=$HOME/lib
+export CLASSPATH=$CLASSPATH:/System/Library/Java
 export CLASSPATH=$CLASSPATH:.:classes
-export CLASSPATH=$CLASSPATH:$CLOJURE_HOME/clojure-contrib/clojure-contrib.jar
-export CLASSPATH=$CLASSPATH:$CLOJURE_HOME/clojure.jar
+
+# clojure
+export CLASSPATH=$CLASSPATH:$HOME/code/clojure/clojure.jar
+export CLASSPATH=$CLASSPATH:$HOME/code/clojure-contrib/clojure-contrib.jar
+
 # lucene
 export CLASSPATH=$CLASSPATH:$CLASSPATH_HOME/lucene/lucene-core-2.4.1.jar
+
 # glassfish
 export GLASSFISH_HOME=$CLASSPATH_HOME/glassfish
 export CLASSPATH=$CLASSPATH:$GLASSFISH_HOME/lib/j2ee.jar
@@ -19,5 +22,11 @@ export CLASSPATH=$CLASSPATH:$GLASSFISH_HOME/lib/dbschema.jar
 export CLASSPATH=$CLASSPATH:$GLASSFISH_HOME/lib/appserv-admin.jar 
 export CLASSPATH=$CLASSPATH:$GLASSFISH_HOME/lib/install/applications/jmsra/imqjmx.jar   
 export CLASSPATH=$CLASSPATH:$GLASSFISH_HOME/lib/install/applications/jmsra/imqjmsra.jar
+
 # android-sdk
 export CLASSPATH=$CLASSPATH:$CLASSPATH_HOME/android-sdk/android.jar
+
+# every misc jar included in lib 
+for JAR in $(find $HOME/lib  -maxdepth 1 -name "*.jar"); do
+  export CLASSPATH=$CLASSPATH:$JAR;
+done
