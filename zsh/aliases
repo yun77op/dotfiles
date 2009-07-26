@@ -5,14 +5,15 @@ alias ..='cd ..'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias h?="history | grep "
-alias ps?="ps aux | grep "
+# alias h?='history | grep '
+# alias ps?='ps aux | grep -v grep | grep '
 
 # ls
 alias ls="ls -F"
 alias l="ls -lAh"
 alias ll="ls -la"
 alias la='ls -A'
+alias lsd='ls -l | grep ^d'
 alias recent="ls -lAt | head"
 
 # git
