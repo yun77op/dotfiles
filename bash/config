@@ -1,6 +1,5 @@
 export PS1="\w\n➜  ";
 export EDITOR="mate -w"
-export LESSOPEN='| /opt/local/bin/lesspipe.sh %s'
 export MANPATH="/opt/local/man:/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -15,6 +14,12 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # java variables
 export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
 export ANT_HOME='/Developer/Java/ant'
+
+# -- start rip config -- #
+RIPDIR=/Users/jsney/.rip
+RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
+PATH="$PATH:$RIPDIR/active/bin"
+export RIPDIR RUBYLIB PATH
 
 # ruby for textmate
 export TM_RUBY="/opt/local/bin/ruby"

@@ -1,18 +1,26 @@
 # cd
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias s='sudo'
+alias md='mkdir'
+alias rd='rmdir'
+alias mcd='mkdir \!*; cd \!*'
 
 # grep
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias h?="history | grep "
-alias ps?="ps aux | grep "
+alias "h?"="history | grep "
+alias "ps?"="ps aux | grep "
 
 # ls
 alias ls="ls -F"
 alias l="ls -lAh"
 alias ll="ls -la"
 alias la='ls -A'
+alias lrt="ls -lrt"
+alias dir="ls -alF | pg"
 alias recent="ls -lAt | head"
 
 # git
@@ -26,12 +34,14 @@ alias gb='git branch'
 alias gs='git status'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
+# svn
+alias svnprop='svn propset svn:keywords Id,Source,Author,HeadURL,Revision,Date'
+
 # rails
 alias sc='script/console'
 alias ss='script/server'
 alias pss='RAILS_ENV=production ss'
 alias sg='script/generate'
-alias a='autotest -rails'
 alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
@@ -67,15 +77,8 @@ alias apache.start='sudo /opt/local/apache2/bin/apachectl'
 alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
 alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
 
-# PostgreSQL
+# Postgresql
 alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D /opt/local/var/db/postgresql83/defaultdb'"
-alias pg.restart="sudo su postgres -c 'pg_ctl restart -D /opt/local/var/db/postgresql83/defaultdb -l /opt/local/var/log/postgresql83/logfile'"
-alias pg.start="sudo su postgres -c 'pg_ctl start -D /opt/local/var/db/postgresql83/defaultdb  -l /opt/local/var/log/postgresql83/logfile'"
+alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
+alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
 alias pg.stop="sudo su postgres -c 'pg_ctl stop -D /opt/local/var/db/postgresql83/defaultdb'"
-
-# JRuby env
-alias jruby.env="source ~/.jruby.env"
-
-# Ruby19 env
-alias ruby19="$HOME/bin/ruby19/bin/ruby"
-alias ruby19.env="source ~/.ruby19.env"
