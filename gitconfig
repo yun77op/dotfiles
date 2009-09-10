@@ -3,7 +3,19 @@
 	email = jeansebastien.ney@gmail.com
 
 [alias]
+	st = status
+	d = diff
+	ci = commit -v
+	cia = commit -v -a
 	co = checkout
+	cp = cherry-pick
+	l = log
+	ll = log -p
+	lt = log trunk..
+	llt = log -p trunk..
+	lm = log master..
+	llm = log -p master..
+	b = branch
 
 [color]
 	diff = auto
