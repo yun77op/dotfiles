@@ -23,3 +23,19 @@ set completion-ignore-case On
 "\e[5~": beginning-of-history
 "\e[6~": end-of-history
 "\e[2~": quoted-insert
+
+$if Bash
+  # F10 toggles mc on and off
+  # Note Ctrl-o toggles panes on and off in mc
+  "\e[21~": "mc\C-M"
+ 
+  #do history expansion when space entered
+  Space: magic-space
+$endif
+
+# tab lists all matches immediately
+set show-all-if-ambiguous on
+
+# Include system wide settings which are ignored
+# by default if one has their own .inputrc
+$include /etc/inputrc

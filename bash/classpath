@@ -1,8 +1,10 @@
 # every misc jar included in lib 
-for JAR in $(find $HOME/lib  -maxdepth 1 -name "*.jar"); do
-  export CLASSPATH=$CLASSPATH:$JAR;
+for JAR in $(find $HOME/lib/*  -maxdepth 1 -name "*.jar"); do
+  CLASSPATH=$CLASSPATH:$JAR;
 done
 
 for JAR in $(find $HOME/lib/*/lib -name "*.jar"); do
-  export CLASSPATH=$CLASSPATH:$JAR;
+  CLASSPATH=$CLASSPATH:$JAR;
 done
+
+export CLASSPATH
