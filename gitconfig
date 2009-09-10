@@ -2,20 +2,21 @@
 	name = Jean-Sébastien Ney
 	email = jeansebastien.ney@gmail.com
 
-[alias]
-	st = status
-	d = diff
+[alias]  
+	b = branch
 	ci = commit -v
 	cia = commit -v -a
 	co = checkout
 	cp = cherry-pick
+	d = diff
 	l = log
 	ll = log -p
 	lt = log trunk..
 	llt = log -p trunk..
 	lm = log master..
 	llm = log -p master..
-	b = branch
+	st = status
+	vis = !gitk --all &
 
 [color]
 	diff = auto
@@ -44,7 +45,7 @@
 [core]
 	excludesfile = /Users/jney/.gitignore
 	editor = mate -w
-	pager = less -FRSX
+	pager = "/opt/local/bin/less -RciqMSj5"
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [apply]

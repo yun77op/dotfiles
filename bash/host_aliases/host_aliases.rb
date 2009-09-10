@@ -3,6 +3,7 @@
 require "yaml"
 
 host_aliases = YAML::load_file(File.expand_path(File.join(File.dirname(__FILE__), "host_aliases.yml")))
+exit unless host_aliases.is_a?(Hash)
 hosts = []
 
 host_aliases.each_key do |protocol|

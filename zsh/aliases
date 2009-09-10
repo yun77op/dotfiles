@@ -58,7 +58,7 @@ alias lines='cat $1 | wc -l'
 # basic remap command
 alias cp='cp -R'
 alias emacs='open -a /Applications/Emacs.app'
-alias more='less'
+alias more='less -RciqMSj5'
 alias vi='vim'
 alias vlc='open -a /Applications/VLC.app'
 
