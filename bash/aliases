@@ -1,7 +1,3 @@
 . ~/.zsh/aliases
-
-# changing directory to code project
-function c { cd ~/code/$1; }
-
-# misc
+eval $(~/.bash/host_aliases/host_aliases.rb)
 alias reload='. ~/.bash_profile'
