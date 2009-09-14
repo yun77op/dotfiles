@@ -1,17 +1,11 @@
 # local Home
 PATH="$HOME/bin:$PATH"
 
-# gwt
-PATH="$HOME/bin/gwt:$PATH"
-
 # Macports
 PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 # erlware
 PATH="/usr/local/erlware/bin:$PATH"
-
-# rabbitmq
-PATH="/Users/jney/repos/rabbit/rabbitmq-server/scripts:$PATH"
 
 # postgresql
 PATH="/opt/local/lib/postgresql83/bin:$PATH"
