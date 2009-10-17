@@ -59,6 +59,7 @@ alias lines='cat $1 | wc -l'
 alias cp='cp -R'
 alias emacs='open -a /Applications/Emacs.app'
 alias more='less -RciqMSj5'
+alias mplayer='/Applications/MPlayer\ OSX.app/Contents//Resources/External_Binaries/mplayer.app/Contents/MacOS/mplayer'
 alias vi='vim'
 alias vlc='open -a /Applications/VLC.app'
 
