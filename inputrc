@@ -15,7 +15,7 @@
 
 # this lets you hit tab to auto-complete a file or
 # directory name ignoring case
-set completion-ignore-case On
+# set completion-ignore-case On
 
 # I'm not sure what keys these are!
 "\e[1~": beginning-of-line
