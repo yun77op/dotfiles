@@ -16,7 +16,8 @@ hosts = []
 host_aliases.each_key do |protocol|
   host_aliases[protocol].each_key do |alias_host|
     host = host_aliases[protocol][alias_host]
-    hosts << %(alias #{protocol}-#{alias_host}="expect -c 'spawn #{protocol} #{host[:username]}@#{host[:host]}; expect assword: ; send #{'\"' << host[:password] << '\n\"' } ; interact'")
+    hosts << %(alias #{protocol}-#{alias_host}="expect -c 'spawn #{protocol} #{host[:username]}@#{host[:host]}; expect assword: ; send #{'\"' << 
+      host[:password].to_s << '\n\"' } ; interact'")
   end
 end
 
