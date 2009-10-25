@@ -57,27 +57,12 @@ alias lines='cat $1 | wc -l'
 
 # basic remap command
 alias cp='cp -R'
-alias emacs='open -a /Applications/Emacs.app'
 alias more='less -RciqMSj5'
-alias mplayer='/Applications/MPlayer\ OSX.app/Contents//Resources/External_Binaries/mplayer.app/Contents/MacOS/mplayer'
 alias vi='vim'
-alias vlc='open -a /Applications/VLC.app'
-
-# Mozilla rhino on : 
-# found at ftp://ftp.mozilla.org/pub/mozilla.org/js
-# cp js.jar to ~/Library/Java/Extensions
-alias js="java org.mozilla.javascript.tools.shell.Main"
 
 # clojure
 alias clojure.console="rlwrap java clojure.lang.Repl"
 alias clojure.script="java clojure.lang.Script"
-
-# Apache
-alias apache.start='sudo /opt/local/apache2/bin/apachectl'
-
-# Mysql
-alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
-alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
 
 # Postgresql
 alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D /opt/local/var/db/postgresql83/defaultdb'"
@@ -85,8 +70,5 @@ alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D /opt/local/v
 alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
 alias pg.stop="sudo su postgres -c 'pg_ctl stop -D /opt/local/var/db/postgresql83/defaultdb'"
 
-# http://gist.github.com/217660
-# isreg domain.com
-function isreg {
-  dig soa $1 | grep -q ^$1 && echo "Yes" || echo "No"
-}
+# ssh and ftp aliases
+eval $(~/.bash/host_aliases/host_aliases.rb)

@@ -8,5 +8,4 @@ if [ `uname` = "Linux" ]; then
   . ~/.aliases/linux_aliases
 fi
 
-eval $(~/.bash/host_aliases/host_aliases.rb)
 alias reload='. ~/.bash_profile'
