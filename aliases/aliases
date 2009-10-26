@@ -11,10 +11,6 @@ alias mcd='mkdir \!*; cd \!*'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-# if grep "bash" $SHELL; then
-  alias "h?"="history | grep "
-  alias "ps?"="ps aux | grep "
-# fi
 
 # ls
 alias ls="ls -F"
