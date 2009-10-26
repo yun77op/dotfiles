@@ -37,7 +37,6 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias svnprop='svn propset svn:keywords Id,Source,Author,HeadURL,Revision,Date'
 
 # ruby & rails
-alias gemi='sudo gem install'
 alias sc='script/console'
 alias ss='script/server'
 alias pss='RAILS_ENV=production ss'
