@@ -77,4 +77,4 @@ alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D /opt/local/var/d
 alias pg.stop="sudo su postgres -c 'pg_ctl stop -D /opt/local/var/db/postgresql83/defaultdb'"
 
 # ssh and ftp aliases
-eval $(~/.bash/host_aliases/host_aliases.rb)
+eval $(~/.aliases/host_aliases/host_aliases.rb)

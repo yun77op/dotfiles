@@ -7,4 +7,4 @@ for JAR in $(find $HOME/lib/*/lib -name "*.jar"); do
   CLASSPATH=$CLASSPATH:$JAR;
 done
 
-export CLASSPATH
+# export CLASSPATH
