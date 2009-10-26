@@ -1,84 +1,9 @@
-# cd
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias s='sudo'
-alias md='mkdir'
-alias rd='rmdir'
-alias mcd='mkdir \!*; cd \!*'
+. ~/.aliases/aliases
 
-# grep
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+if [ `uname` = "Darwin" ]; then
+  . ~/.aliases/darwin_aliases
+fi
 
-# ls
-alias ls="ls -F"
-alias l="ls -lAh"
-alias ll="ls -la"
-alias la='ls -A'
-alias lsd='ls -l | grep ^d'
-alias lrt="ls -lrt"
-alias dir="ls -alF | pg"
-alias recent="ls -lAt | head"
-
-# git
-alias gl='git pull'
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit'
-alias gca='git commit -a'
-alias gco='git checkout'
-alias gb='git branch'
-alias gs='git status'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
-
-# svn
-alias svnprop='svn propset svn:keywords Id,Source,Author,HeadURL,Revision,Date'
-
-# ruby & rails
-alias sc='script/console'
-alias ss='script/server'
-alias pss='RAILS_ENV=production ss'
-alias sg='script/generate'
-alias tlog='tail -f log/development.log'
-alias scaffold='script/generate nifty_scaffold'
-alias migrate='rake db:migrate db:test:clone'
-alias rst='touch tmp/restart.txt'
-alias railsmate='ls -1 | egrep -vi "(log|tmp|cache)" | xargs mate'
-
-# commands starting with % for pasting from web
-alias %=' '
-
-# get lines number for a file
-alias lines='cat $1 | wc -l'
-
-# basic remap command
-alias cp='cp -R'
-alias emacs='open -a /Applications/Emacs.app'
-alias more='less -RciqMSj5'
-alias mplayer='/Applications/MPlayer\ OSX.app/Contents//Resources/External_Binaries/mplayer.app/Contents/MacOS/mplayer'
-alias vi='vim'
-alias vlc='open -a /Applications/VLC.app'
-
-# Mozilla rhino on : 
-# found at ftp://ftp.mozilla.org/pub/mozilla.org/js
-# cp js.jar to ~/Library/Java/Extensions
-alias js="java org.mozilla.javascript.tools.shell.Main"
-
-# clojure
-alias clojure.console="rlwrap java clojure.lang.Repl"
-alias clojure.script="java clojure.lang.Script"
-
-# Apache
-alias apache.start='sudo /opt/local/apache2/bin/apachectl'
-
-# Mysql
-alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
-alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
-
-# Postgresql
-alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D /opt/local/var/db/postgresql83/defaultdb'"
-alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
-alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
-alias pg.stop="sudo su postgres -c 'pg_ctl stop -D /opt/local/var/db/postgresql83/defaultdb'"
+if [ `uname` = "Linux" ]; then
+  . ~/.aliases/linux_aliases
+fi

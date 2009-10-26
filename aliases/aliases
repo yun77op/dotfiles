@@ -1,0 +1,74 @@
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias s='sudo'
+alias md='mkdir'
+alias rd='rmdir'
+alias mcd='mkdir \!*; cd \!*'
+
+# grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias "h?"="history | grep "
+alias "ps?"="ps aux | grep "
+
+# ls
+alias ls="ls -F"
+alias l="ls -lAh"
+alias ll="ls -la"
+alias la='ls -A'
+alias lsd='ls -l | grep ^d'
+alias lrt="ls -lrt"
+alias dir="ls -alF | pg"
+alias recent="ls -lAt | head"
+
+# git
+alias gl='git pull'
+alias gp='git push'
+alias gd='git diff'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gb='git branch'
+alias gs='git status'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+
+# svn
+alias svnprop='svn propset svn:keywords Id,Source,Author,HeadURL,Revision,Date'
+
+# rails
+alias sc='script/console'
+alias ss='script/server'
+alias pss='RAILS_ENV=production ss'
+alias sg='script/generate'
+alias tlog='tail -f log/development.log'
+alias scaffold='script/generate nifty_scaffold'
+alias migrate='rake db:migrate db:test:clone'
+alias rst='touch tmp/restart.txt'
+alias railsmate='ls -1 | egrep -vi "(log|tmp|cache)" | xargs mate'
+
+# commands starting with % for pasting from web
+alias %=' '
+
+# get lines number for a file
+alias lines='cat $1 | wc -l'
+
+# basic remap command
+alias cp='cp -R'
+alias more='less -RciqMSj5'
+alias vi='vim'
+
+# clojure
+alias clojure.console="rlwrap java clojure.lang.Repl"
+alias clojure.script="java clojure.lang.Script"
+
+# Postgresql
+alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D /opt/local/var/db/postgresql83/defaultdb'"
+alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
+alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
+alias pg.stop="sudo su postgres -c 'pg_ctl stop -D /opt/local/var/db/postgresql83/defaultdb'"
+
+# ssh and ftp aliases
+eval $(~/.bash/host_aliases/host_aliases.rb)

@@ -1,3 +1,11 @@
-. ~/.zsh/aliases
-eval $(~/.bash/host_aliases/host_aliases.rb)
+. ~/.aliases/aliases
+
+if [ `uname` = "Darwin" ]; then
+  . ~/.aliases/darwin_aliases
+fi
+
+if [ `uname` = "Linux" ]; then
+  . ~/.aliases/linux_aliases
+fi
+
 alias reload='. ~/.bash_profile'
