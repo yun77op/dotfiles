@@ -11,8 +11,10 @@ alias mcd='mkdir \!*; cd \!*'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias "h?"="history | grep "
-alias "ps?"="ps aux | grep "
+# if grep "bash" $SHELL; then
+  alias "h?"="history | grep "
+  alias "ps?"="ps aux | grep "
+# fi
 
 # ls
 alias ls="ls -F"
@@ -48,6 +50,10 @@ alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 alias railsmate='ls -1 | egrep -vi "(log|tmp|cache)" | xargs mate'
+
+function gemu {
+  gem search --no-version $1 | grep $1 | xargs sudo gem uninstall -a
+}
 
 # commands starting with % for pasting from web
 alias %=' '
