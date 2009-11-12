@@ -18,3 +18,5 @@ alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo 
 # found at ftp://ftp.mozilla.org/pub/mozilla.org/js
 # cp js.jar to ~/Library/Java/Extensions
 alias js="java org.mozilla.javascript.tools.shell.Main"
+
+alias vi="/Applications/Vim.app/Contents/MacOS/Vim"
