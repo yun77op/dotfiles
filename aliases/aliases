@@ -55,7 +55,9 @@ function gemu {
 alias %=' '
 
 # get lines number for a file
-alias lines='cat $1 | wc -l'
+function lines {
+  cat "$1" | wc -l
+}
 
 # basic remap command
 alias cp='cp -R'
