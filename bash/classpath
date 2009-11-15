@@ -8,3 +8,4 @@ for JAR in $(find $HOME/lib/*/lib -name "*.jar"); do
 done
 
 # export CLASSPATH
+export CLASSPATH=$CLASSPATH:/usr/local/Cellar/clojure-contrib/HEAD
