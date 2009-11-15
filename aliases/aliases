@@ -12,6 +12,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# system
+alias halt='sudo halt'
+alias reboot='sudo reboot'
+
 # ls
 alias ls="ls -F"
 alias l="ls -lAh"
