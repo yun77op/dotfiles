@@ -56,6 +56,9 @@ alias cp='cp -R'
 alias more='less -RciqMSj5'
 alias vi='vim'
 
+# misc
+alias lines='wc -l'
+
 # clojure
 alias clojure.console="rlwrap java clojure.lang.Repl"
 alias clojure.script="java clojure.lang.Script"

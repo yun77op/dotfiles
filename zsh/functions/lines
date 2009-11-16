@@ -1,2 +1,0 @@
-# get lines number for a file
-cat "$1" | wc -l
