@@ -51,29 +51,6 @@ alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 alias railsmate='ls -1 | egrep -vi "(log|tmp|cache)" | xargs mate'
 
-# uninstall every gem got the same root
-# ex : gemu merb
-# will uninstall every merb gem
-function gemu {
-  gem search --no-version $1 | grep $1 | xargs sudo gem uninstall -a
-}
-
-function tweet {
-  if [ -z $TWITTER_USER ]; then
-    echo "user:"
-    read TWITTER_USER
-    echo "password:"
-    read -s TWITTER_PASSWORD
-  fi
-
-  curl -u $TWITTER_USER:$TWITTER_PASSWORD -d status="$1" http://twitter.com/statuses/update.xml
-}
-
-# get lines number for a file
-function lines {
-  cat "$1" | wc -l
-}
-
 # basic remap command
 alias cp='cp -R'
 alias more='less -RciqMSj5'
