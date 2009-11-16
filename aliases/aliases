@@ -12,6 +12,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# system
+alias halt='sudo halt'
+alias reboot='sudo reboot'
+
 # ls
 alias ls="ls -F"
 alias l="ls -lAh"
@@ -52,6 +56,17 @@ alias railsmate='ls -1 | egrep -vi "(log|tmp|cache)" | xargs mate'
 # will uninstall every merb gem
 function gemu {
   gem search --no-version $1 | grep $1 | xargs sudo gem uninstall -a
+}
+
+function tweet {
+  if [ -z $TWITTER_USER ]; then
+    echo "user:"
+    read TWITTER_USER
+    echo "password:"
+    read -s TWITTER_PASSWORD
+  fi
+
+  curl -u $TWITTER_USER:$TWITTER_PASSWORD -d status="$1" http://twitter.com/statuses/update.xml
 }
 
 # get lines number for a file
