@@ -29,6 +29,14 @@ task :install do
   end
 end
 
+desc "remove the dot files into user's home directory"
+task :clean do
+  Dir['*'].each do |file|
+    next if %w[Rakefile README].include? file
+    `rm -rf "$HOME/.#{file}"`
+  end
+end
+
 def replace_file(file)
   system %Q{rm -rf "$HOME/.#{file}"}
   link_file(file)
