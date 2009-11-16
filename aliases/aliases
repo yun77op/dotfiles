@@ -47,12 +47,12 @@ alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 alias railsmate='ls -1 | egrep -vi "(log|tmp|cache)" | xargs mate'
 
+# uninstall every gem got the same root
+# ex : gemu merb
+# will uninstall every merb gem
 function gemu {
   gem search --no-version $1 | grep $1 | xargs sudo gem uninstall -a
 }
-
-# commands starting with % for pasting from web
-alias %=' '
 
 # get lines number for a file
 function lines {
