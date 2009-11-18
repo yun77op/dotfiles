@@ -3,7 +3,7 @@ PS1='%n@%m:%d$(git_info_for_prompt)
 EDITOR='mate -w'
 MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
-cdpath=($cdpath ~/code)
+# cdpath=($cdpath ~/code)
 fpath=(~/.zsh/functions $fpath)
 
 autoload -U ~/.zsh/functions/*(:t)
