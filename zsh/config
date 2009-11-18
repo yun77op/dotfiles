@@ -1,13 +1,14 @@
 PS1='%n@%m:%d$(git_info_for_prompt)
 ➜ '
 EDITOR='mate -w'
-PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
 MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 cdpath=($cdpath ~/code)
 fpath=(~/.zsh/functions $fpath)
 
 autoload -U ~/.zsh/functions/*(:t)
+autoload -U colors && colors
+autoload -U compinit && compinit
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -49,5 +50,6 @@ bindkey "^[[5D" backward-word
 bindkey "^[[5C" forward-word
 bindkey "^[[3~" delete-char
 bindkey "^[^N" newtab
+bindkey '^[[Z' reverse-menu-complete
 bindkey " " magic-space    # also do history expansion on space
 bindkey "^I" complete-word # complete on tab, leave expansion to _expand
