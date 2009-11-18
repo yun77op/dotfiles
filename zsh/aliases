@@ -1,9 +1,5 @@
 . ~/.aliases/aliases
+[[ `uname` = "Darwin" ]] && . ~/.aliases/darwin_aliases
+[[ `uname` = "Linux" ]]  && . ~/.aliases/linux_aliases
 
-if [ `uname` = "Darwin" ]; then
-  . ~/.aliases/darwin_aliases
-fi
-
-if [ `uname` = "Linux" ]; then
-  . ~/.aliases/linux_aliases
-fi
+alias reload='. ~/.zshrc'

@@ -58,6 +58,7 @@ alias vi='vim'
 
 # misc
 alias lines='wc -l'
+alias cssembed="java -jar $HOME/lib/cssembed-0.2.6.jar"
 
 # clojure
 alias clojure.console="rlwrap java clojure.lang.Repl"

@@ -1,7 +1,6 @@
 # local Home
-PATH="$HOME/bin:$PATH"
-
-PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
+PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:\
+/usr/local/git/bin:$HOME/.gem/ruby/1.8/bin:$PATH"
 
 if [ `uname` = "Darwin" ]; then
   # homebrew
@@ -12,20 +11,11 @@ if [ `uname` = "Darwin" ]; then
   PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 fi
 
-# erlware
-PATH="/usr/local/erlware/bin:$PATH"
-
 # postgresql
 PATH="/opt/local/lib/postgresql83/bin:$PATH"
 
-# rubygems binaries
-PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
-
-# Other paths
-PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
-
 for BIN in $(find $HOME/bin/*/bin  -maxdepth 0); do
-  PATH=$PATH:$BIN;
+  PATH="$BIN:$PATH"
 done
 
 export PATH

@@ -7,6 +7,8 @@ MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 fpath=(~/.zsh/functions $fpath)
 
 autoload -U ~/.zsh/functions/*(:t)
+autoload -U colors && colors
+autoload -U compinit && compinit
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -48,5 +50,6 @@ bindkey "^[[5D" backward-word
 bindkey "^[[5C" forward-word
 bindkey "^[[3~" delete-char
 bindkey "^[^N" newtab
+bindkey '^[[Z' reverse-menu-complete
 bindkey " " magic-space    # also do history expansion on space
 bindkey "^I" complete-word # complete on tab, leave expansion to _expand
