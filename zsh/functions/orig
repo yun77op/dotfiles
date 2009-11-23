@@ -1,0 +1,16 @@
+if [ $# = 0 ] ; then
+  echo "usage: orig FILE ..."
+  echo "copy FILE(s) to FILE.orig"
+else
+  for f in "$@" ; do
+    case "$f" in
+      *.orig)
+        rm -rf "`basename $f .orig`"
+        mv "$f" "`basename $f .orig`"
+        ;;
+      *)
+        cp -p "$f" "$f.orig"
+        ;;
+    esac
+  done
+fi
