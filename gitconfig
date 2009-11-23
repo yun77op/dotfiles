@@ -15,6 +15,7 @@
 	llt = log -p trunk..
 	lm = log master..
 	llm = log -p master..
+	msg = commit --allow-empty -m
 	st = status
 	vis = !gitk --all &
 
