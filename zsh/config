@@ -1,7 +1,14 @@
 PS1='%n@%m:%d$(git_info_for_prompt)
 ➜ '
-EDITOR='mate -w'
-MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+case "${OSTYPE}" in
+  darwin*)
+    EDITOR='mate -w'
+    ;;
+  linux*)
+    EDITOR='vi'
+    ;;
+esac
 
 # cdpath=($cdpath ~/code)
 fpath=(~/.zsh/functions $fpath)
@@ -27,6 +34,7 @@ setopt CORRECT
 setopt COMPLETE_IN_WORD
 setopt PRINT_EXIT_VALUE # Print the exit value of programs with non-zero exit status.
 
+# history
 setopt APPEND_HISTORY # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
@@ -43,13 +51,13 @@ zle -N newtab
 bindkey "^[[5~" up-line-or-history
 bindkey "^[[6~" down-line-or-history
 bindkey "^[[H" beginning-of-line
-bindkey "^[[1~" beginning-of-line
 bindkey "^[[F"  end-of-line
-bindkey "^[[4~" end-of-line
+bindkey "^[[1~" backward-word
 bindkey "^[[5D" backward-word
+bindkey "^[[4~" forward-word
 bindkey "^[[5C" forward-word
 bindkey "^[[3~" delete-char
 bindkey "^[^N" newtab
-bindkey '^[[Z' reverse-menu-complete
+bindkey "^[[Z" reverse-menu-complete
 bindkey " " magic-space    # also do history expansion on space
 bindkey "^I" complete-word # complete on tab, leave expansion to _expand
