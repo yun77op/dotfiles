@@ -1,5 +1,12 @@
 . ~/.aliases/aliases
-[[ `uname` = "Darwin" ]] && . ~/.aliases/darwin_aliases
-[[ `uname` = "Linux" ]]  && . ~/.aliases/linux_aliases
+
+case "${OSTYPE}" in
+  darwin*)
+    . ~/.aliases/darwin_aliases
+    ;;
+  linux*)
+    . ~/.aliases/linux_aliases
+    ;;
+esac
 
 alias reload='. ~/.zshrc'

@@ -2,14 +2,20 @@
 PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:\
 /usr/local/git/bin:$HOME/.gem/ruby/1.8/bin:$PATH"
 
-if [ `uname` = "Darwin" ]; then
-  # homebrew
-  PATH=`brew --prefix`/bin:$PATH
-  export MANPATH=`brew --prefix`/share/man:$MANPATH
-  
-  # Macports
-  PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-fi
+MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+case "${OSTYPE}" in
+  darwin*)
+    # homebrew
+    PATH=`brew --prefix`/bin:$PATH
+    MANPATH=`brew --prefix`/share/man:$MANPATH
+    # macports
+    PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+    ;;
+  linux*)
+    # nothing yet
+    ;;
+esac
 
 # postgresql
 PATH="/opt/local/lib/postgresql83/bin:$PATH"
@@ -19,3 +25,4 @@ for BIN in $(find $HOME/bin/*/bin  -maxdepth 0); do
 done
 
 export PATH
+export MANPATH
