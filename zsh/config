@@ -52,12 +52,25 @@ bindkey "^[[5~" up-line-or-history
 bindkey "^[[6~" down-line-or-history
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F"  end-of-line
-bindkey "^[[1~" backward-word
+# bindkey "^[[1~" backward-word
 bindkey "^[[5D" backward-word
-bindkey "^[[4~" forward-word
+# bindkey "^[[4~" forward-word
 bindkey "^[[5C" forward-word
 bindkey "^[[3~" delete-char
 bindkey "^[^N" newtab
 bindkey "^[[Z" reverse-menu-complete
+
+# complete on up and down keys
+bindkey "\e[B" history-search-forward
+bindkey "\e[A" history-search-backward
+
+# 
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+
+bindkey "^H" backward-delete-word
+
 bindkey " " magic-space    # also do history expansion on space
 bindkey "^I" complete-word # complete on tab, leave expansion to _expand
+
+export PAGER=less

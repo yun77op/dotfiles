@@ -58,7 +58,9 @@ alias vi='vim'
 
 # misc
 alias lines='wc -l'
-alias cssembed="java -jar $HOME/lib/cssembed-0.2.6.jar"
+alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
+alias 'h?'='history | grep '
+alias 'ps?'='ps ax | grep '
 
 # clojure
 alias clojure.console="rlwrap java clojure.lang.Repl"
@@ -69,6 +71,8 @@ alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D /opt/local/var/d
 alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
 alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
 alias pg.stop="sudo su postgres -c 'pg_ctl stop -D /opt/local/var/db/postgresql83/defaultdb'"
+alias pg2csv='psql -F\; -A --pset footer'
+# ex: psql -F\; -A --pset footer -f input_file.sql -o output_file.csv database_name
 
 # ssh and ftp aliases
 eval $(~/.aliases/host_aliases/host_aliases.rb)
