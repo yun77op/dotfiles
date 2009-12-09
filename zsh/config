@@ -21,6 +21,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 
+if [ -n "$SSH_TTY" ]; then
+  export DISPLAY=:0.0
+fi
+
 # man zshoptions
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
