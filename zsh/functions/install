@@ -1,0 +1,4 @@
+if [ ! -f ~/bin/${1##*/} ]; then
+  curl $1 > ~/bin/${1##*/}
+  chmod +x ~/bin/${1##*/}
+fi

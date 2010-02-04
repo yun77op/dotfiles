@@ -1,0 +1,1 @@
+while TRUE; do git add *; git commit -a -m 'auto commit'; sleep 60; done
