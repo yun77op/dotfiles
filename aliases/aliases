@@ -1,12 +1,3 @@
-# cd
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias s='sudo'
-alias md='mkdir'
-alias rd='rmdir'
-alias mcd='mkdir \!*; cd \!*'
-
 # grep
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
