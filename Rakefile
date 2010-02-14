@@ -1,6 +1,8 @@
 require 'rake'
 require 'erb'
 
+task :default => [:install]
+
 desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
@@ -39,7 +41,7 @@ task :clean do
 end
 
 def replace_file(file)
-  system %Q{rm "$HOME/.#{file.sub('.erb', '')}"}
+  system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
   link_file(file)
 end
 
