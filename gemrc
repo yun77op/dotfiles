@@ -1,9 +1,8 @@
 ---
-gem: --no-ri --no-rdoc
 :backtrace: false
 :benchmark: false
 :bulk_threshold: 1000
-:gempath:
+:gem: --no-ri --no-rdoc -n/usr/local/bin
 :sources:
 - http://gemcutter.org
 - http://gems.rubyforge.org
