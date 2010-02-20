@@ -2,28 +2,13 @@
 PATH="$HOME/bin:$PATH"
 
 if [ `uname` = "Darwin" ]; then
-  # homebrew
-  PATH=`brew --prefix`/bin:$PATH
-  export MANPATH=`brew --prefix`/share/man:$MANPATH
-  
-  # Macports
-  PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+  export MANPATH="`brew --prefix`/share/man:$MANPATH"
 fi
 
 # erlware
 PATH="/usr/local/erlware/bin:$PATH"
 
-# postgresql
-PATH="/opt/local/lib/postgresql83/bin:$PATH"
-
-# rubygems binaries
-PATH="$HOME/.gem/ruby/1.8/bin:$PATH"
-
 # Other paths
 PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
-
-for BIN in $(find $HOME/bin/*/bin  -maxdepth 0); do
-  PATH=$PATH:$BIN;
-done
 
 export PATH
