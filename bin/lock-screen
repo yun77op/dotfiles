@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case "${OSTYPE}" in
+  darwin*)
+    /System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend
+    ;;
+  linux*)
+    gnome-screensaver
+    gnome-screensaver-command -l
+    ;;
+esac
