@@ -1,5 +1,5 @@
 # local Home
-PATH="$HOME/bin:$PATH"
+PATH="$HOME/.bin:$HOME/bin:$PATH"
 
 case "${OSTYPE}" in
   darwin*)
