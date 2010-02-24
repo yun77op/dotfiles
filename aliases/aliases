@@ -74,3 +74,9 @@ alias pg2csv='psql -F\; -A --pset footer'
 
 # ssh and ftp aliases
 eval $(~/.aliases/host_aliases/host_aliases.rb)
+
+# Java
+# Mozilla rhino on : 
+# found at ftp://ftp.mozilla.org/pub/mozilla.org/js
+# cp js.jar to ~/Library/Java/Extensions
+alias js="java -jar ~/lib/js.jar"

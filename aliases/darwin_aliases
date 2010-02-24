@@ -7,16 +7,11 @@ alias "ps?"="ps aux | grep "
 
 # Misc
 # alias emacs='open -a /Applications/Emacs.app'
-alias mplayer='/Applications/MPlayer\ OSX.app/Contents//Resources/External_Binaries/mplayer.app/Contents/MacOS/mplayer'
+# alias mplayer='/Applications/MPlayer\ OSX.app/Contents//Resources/External_Binaries/mplayer.app/Contents/MacOS/mplayer'
 alias vlc='open -a /Applications/VLC.app'
 
 # Mysql
 alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
 alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
 
-# Mozilla rhino on : 
-# found at ftp://ftp.mozilla.org/pub/mozilla.org/js
-# cp js.jar to ~/Library/Java/Extensions
-alias js="java org.mozilla.javascript.tools.shell.Main"
-
-alias vi="/Applications/Vim.app/Contents/MacOS/Vim"
+# alias vi="/Applications/Vim.app/Contents/MacOS/Vim"
