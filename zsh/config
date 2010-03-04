@@ -10,7 +10,6 @@ case "${OSTYPE}" in
     ;;
 esac
 
-# cdpath=($cdpath ~/code)
 fpath=(~/.zsh/functions $fpath)
 
 autoload -U ~/.zsh/functions/*(:t)
@@ -38,7 +37,9 @@ setopt CORRECT
 setopt COMPLETE_IN_WORD
 setopt PRINT_EXIT_VALUE # Print the exit value of programs with non-zero exit status.
 
-# history
+# -------------------------------------------------------------------
+# History
+# -------------------------------------------------------------------
 setopt APPEND_HISTORY # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
@@ -52,6 +53,9 @@ setopt HIST_FIND_NO_DUPS
 
 zle -N newtab
 
+# -------------------------------------------------------------------
+# Key binding
+# -------------------------------------------------------------------
 bindkey "^[[5~" up-line-or-history
 bindkey "^[[6~" down-line-or-history
 bindkey "^[[H" beginning-of-line

@@ -1,11 +1,30 @@
-# local Home
-PATH="$HOME/.bin:$HOME/bin:$PATH"
-
-if [ `uname` = "Darwin" ]; then
-  export MANPATH="`brew --prefix`/share/man:$MANPATH"
-fi
-
-# erlware
-PATH="/usr/local/erlware/bin:$PATH"
+# ----------------------------------------------------------------------
+# PATH
+# ----------------------------------------------------------------------
+ 
+# we want the various sbins on the path along with /usr/local/bin
+PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+ 
+# put ~/bin on PATH if you have it
+test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
+ 
+# put ~/.bin on PATH if you have it
+test -d "$HOME/.bin" && PATH="$HOME/.bin:$PATH"
 
 export PATH
+
+# ----------------------------------------------------------------------
+# MANPATH
+# ----------------------------------------------------------------------
+
+case "${OSTYPE}" in
+  darwin*)
+    # homebrew
+    MANPATH="`brew --prefix`/share/man:$MANPATH"
+    ;;
+  linux*)
+    # nothing yet
+    ;;
+esac
+
+export MANPATH
