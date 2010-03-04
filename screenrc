@@ -1,0 +1,9 @@
+# -------------------------------------------------------------------
+# Settings
+# -------------------------------------------------------------------
+crlf off                        # No Microsoft linebreaks
+startup_message off             # bypass GPL notice (we're aware)
+defscrollback 15000             # big scrollback
+shell zsh                       # don't start login shells
+
+caption always "%{=b dy}%D, %d. %M '%y %{=b dw}%c:%s %{=b dy}{ %{= dg}${USER}@%{= dr}%H %{=b dy}} %{=b d2}%l %{=b dy}%u %{=b dy} %={ %?%{= dc}%-Lw%?%{+b dy}(%{-b r}%n:%t%{+b dy})%?(%u)%?%{-dc}%?%{= dc}%+Lw%? %{=b dy}}"
