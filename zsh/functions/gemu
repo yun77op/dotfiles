@@ -1,4 +1,0 @@
-# uninstall every gem got the same root
-# ex : gemu merb
-# will uninstall every merb gem
-gem search --no-version $1 | grep $1 | xargs sudo gem uninstall -a
