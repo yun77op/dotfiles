@@ -77,3 +77,14 @@ eval $(~/.aliases/host_aliases/host_aliases.rb)
 # Mozilla rhino found at ftp://ftp.mozilla.org/pub/mozilla.org/js
 alias js="java -jar $HOME/lib/js.jar"
 alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
+
+# Reload
+case "${SHELL}" in
+  *bash)
+    # homebrew
+    alias reload='. ~/.bash_profile'
+    ;;
+  *zsh)
+    alias reload='. ~/.zshrc'
+    ;;
+esac
