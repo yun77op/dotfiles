@@ -56,7 +56,6 @@ alias xmldelete="curl -X DELETE -H 'Accept: application/xml'"
 
 # misc
 alias lines='wc -l'
-alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
 alias 'h?'='history | grep -i'
 alias 'ps?'='ps ax | grep -i'
 
@@ -75,8 +74,6 @@ alias pg2csv='psql -F\; -A --pset footer'
 # ssh and ftp aliases
 eval $(~/.aliases/host_aliases/host_aliases.rb)
 
-# Java
-# Mozilla rhino on : 
-# found at ftp://ftp.mozilla.org/pub/mozilla.org/js
-# cp js.jar to ~/Library/Java/Extensions
-alias js="java -jar ~/lib/js.jar"
+# Mozilla rhino found at ftp://ftp.mozilla.org/pub/mozilla.org/js
+alias js="java -jar $HOME/lib/js.jar"
+alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
