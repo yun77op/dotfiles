@@ -1,15 +1,6 @@
 PS1='%n@%m:%d$(git_info_for_prompt)
 ➜ '
 
-case "${OSTYPE}" in
-  darwin*)
-    EDITOR='mate -w'
-    ;;
-  linux*)
-    EDITOR='vi'
-    ;;
-esac
-
 fpath=(~/.zsh/functions $fpath)
 
 autoload -U ~/.zsh/functions/*(:t)
@@ -24,7 +15,9 @@ if [ -n "$SSH_TTY" ]; then
   export DISPLAY=:0.0
 fi
 
+# -------------------------------------------------------------------
 # man zshoptions
+# -------------------------------------------------------------------
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
 setopt NO_LIST_BEEP
@@ -80,5 +73,3 @@ bindkey "^H" backward-delete-word
 
 bindkey " " magic-space    # also do history expansion on space
 bindkey "^I" complete-word # complete on tab, leave expansion to _expand
-
-export PAGER=less

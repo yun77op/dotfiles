@@ -1,13 +1,31 @@
 # -------------------------------------------------------------------
 # Settings
 # -------------------------------------------------------------------
-crlf off                        # No Microsoft linebreaks
-startup_message off             # bypass GPL notice (we're aware)
-defscrollback 15000             # big scrollback
-shell zsh                       # don't start login shells
-shelltitle 'w0'            # no title by default - set in PS1
-defmonitor on                   # turn on monitoring
-activity "<%n>"                 # let you know when stuff happens!
-silencewait 15                  # notify when window goes silent
+crlf              off           # No Microsoft linebreaks
+startup_message   off           # bypass GPL notice (we're aware)
+defscrollback     15000         # big scrollback
+shell             zsh           # don't start login shells
+shelltitle        "$ | zsh"     # suppose to write current process...
+defmonitor        on            # turn on monitoring
+activity          "<%n>"        # let you know when stuff happens!
+silencewait       15            # notify when window goes silent
+bell_msg          "DING! (%n)"
+vbell_msg         "DING! (%n)"
+vbell             on
+nethack           off           # makes error messages cryptic.
+pow_detach_msg    "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+autodetach        on
+defutf8           on
 
-caption always "%{=b dy}%D, %d. %M '%y %{=b dw}%c:%s %{=b dy}{ %{= dg}${USER}@%{= dr}%H %{=b dy}} %{=b d2}%l %{=b dy}%u %{=b dy} %={ %?%{= dc}%-Lw%?%{+b dy}(%{-b r}%n:%t%{+b dy})%?(%u)%?%{-dc}%?%{= dc}%+Lw%? %{=b dy}}"
+# current status
+hardstatus alwayslastline "${USER}@%H | %M%d %c | %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+
+# enable bold
+attrcolor b ".I"
+ 
+# allow 256 colors
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+termcapinfo xterm ti@:te@
+
+# screen -t shell 0 zsh
