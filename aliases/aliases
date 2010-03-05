@@ -1,13 +1,38 @@
-# grep
+# ----------------------------------------------------------------------
+# GREP
+# ----------------------------------------------------------------------
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# system
-alias halt='sudo halt'
-alias reboot='sudo reboot'
+# ----------------------------------------------------------------------
+# SVN
+# ----------------------------------------------------------------------
 
-# ls
+alias svnprop='svn propset svn:keywords Id,Source,Author,HeadURL,Revision,Date'
+
+# ----------------------------------------------------------------------
+# MISC
+# ----------------------------------------------------------------------
+
+alias cp='cp -R'
+test -n "$(command -v less)" && alias more='less -RciqMSj5'
+test -n "$(command -v vim)"  && alias vi='vim'
+alias lines='wc -l'
+alias 'h?'='history | grep -i'
+alias 'ps?'='ps ax | grep -i'
+
+# ----------------------------------------------------------------------
+# SSH AND FTP ALIASES
+# ----------------------------------------------------------------------
+
+eval $(~/.aliases/host_aliases/host_aliases.rb)
+
+# ----------------------------------------------------------------------
+# LS
+# ----------------------------------------------------------------------
+
 alias ls="ls -F"
 alias l="ls -lAh"
 alias ll="ls -la"
@@ -17,7 +42,10 @@ alias lrt="ls -lrt"
 alias dir="ls -alF | pg"
 alias recent="ls -lAt | head"
 
-# git
+# ----------------------------------------------------------------------
+# GIT
+# ----------------------------------------------------------------------
+
 alias gl='git pull'
 alias gp='git push'
 alias gd='git diff'
@@ -28,10 +56,10 @@ alias gb='git branch'
 alias gs='git status'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
-# svn
-alias svnprop='svn propset svn:keywords Id,Source,Author,HeadURL,Revision,Date'
+# ----------------------------------------------------------------------
+# RAILS
+# ----------------------------------------------------------------------
 
-# rails
 alias sc='script/console'
 alias ss='script/server'
 alias pss='RAILS_ENV=production ss'
@@ -42,43 +70,46 @@ alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 alias railsmate='ls -1 | egrep -vi "(log|tmp|cache)" | xargs mate'
 
-# basic remap command
-alias cp='cp -R'
-alias more='less -RciqMSj5'
-alias vi='vim'
+# ----------------------------------------------------------------------
+# CURL
+# ----------------------------------------------------------------------
 
-# curl
 alias xmlget="curl -X GET -H 'Accept: application/xml'"
 alias jsonget="curl -X GET -H 'Accept: application/json'"
 alias xmlpost="curl -X POST -H 'Accept: application/xml'"
 alias xmlput="curl -X PUT -H 'Accept: application/xml'"
 alias xmldelete="curl -X DELETE -H 'Accept: application/xml'"
 
-# misc
-alias lines='wc -l'
-alias 'h?'='history | grep -i'
-alias 'ps?'='ps ax | grep -i'
+# ----------------------------------------------------------------------
+# POSTGRESQL
+# ----------------------------------------------------------------------
 
-# clojure
-alias clojure.console="rlwrap java clojure.lang.Repl"
-alias clojure.script="java clojure.lang.Script"
+if test -n "$(command -v postgres)"; then
+  export PG_DIR="/usr/local/var/db/postgres"
+  alias pg.create="sudo su postgres -c 'initdb $PG_DIR'"
+  alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D $PG_DIR'"
+  alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D $PG_DIR'"
+  alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D $PG_DIR'"
+  alias pg.stop="sudo su postgres -c 'pg_ctl stop -s -m fast -D $PG_DIR'"
+  alias pg2csv='psql -F\; -A --pset footer'
+  # ex: psql -F\; -A --pset footer -f input_file.sql -o output_file.csv database_name
+fi
 
-# Postgresql
-alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D /opt/local/var/db/postgresql83/defaultdb'"
-alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
-alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D /opt/local/var/db/postgresql83/defaultdb'"
-alias pg.stop="sudo su postgres -c 'pg_ctl stop -D /opt/local/var/db/postgresql83/defaultdb'"
-alias pg2csv='psql -F\; -A --pset footer'
-# ex: psql -F\; -A --pset footer -f input_file.sql -o output_file.csv database_name
-
-# ssh and ftp aliases
-eval $(~/.aliases/host_aliases/host_aliases.rb)
+# ----------------------------------------------------------------------
+# JAVA ALIASES
+# ----------------------------------------------------------------------
 
 # Mozilla rhino found at ftp://ftp.mozilla.org/pub/mozilla.org/js
 alias js="java -jar $HOME/lib/js.jar"
 alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
+# clojure
+alias clojure.console="rlwrap java clojure.lang.Repl"
+alias clojure.script="java clojure.lang.Script"
 
-# Reload
+# ----------------------------------------------------------------------
+# RELOAD
+# ----------------------------------------------------------------------
+
 case "${SHELL}" in
   *bash)
     # homebrew

@@ -11,13 +11,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 
-if [ -n "$SSH_TTY" ]; then
-  export DISPLAY=:0.0
-fi
+# -------------------------------------------------------------------
+# MAN ZSHOPTIONS
+# -------------------------------------------------------------------
 
-# -------------------------------------------------------------------
-# man zshoptions
-# -------------------------------------------------------------------
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
 setopt NO_LIST_BEEP
@@ -31,13 +28,14 @@ setopt COMPLETE_IN_WORD
 setopt PRINT_EXIT_VALUE # Print the exit value of programs with non-zero exit status.
 
 # -------------------------------------------------------------------
-# History
+# HISTORY
 # -------------------------------------------------------------------
-setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+
+setopt APPEND_HISTORY                   # adds history
+setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share it across sessions
+setopt HIST_IGNORE_ALL_DUPS             # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
-setopt HIST_IGNORE_SPACE # If a line starts with a space, don't save it.
+setopt HIST_IGNORE_SPACE                # If a line starts with a space, don't save it.
 setopt HIST_NO_STORE
 setopt HIST_VERIFY
 setopt HIST_SAVE_NO_DUPS
@@ -47,29 +45,22 @@ setopt HIST_FIND_NO_DUPS
 zle -N newtab
 
 # -------------------------------------------------------------------
-# Key binding
+# KEY BINDING
 # -------------------------------------------------------------------
+
 bindkey "^[[5~" up-line-or-history
 bindkey "^[[6~" down-line-or-history
-bindkey "^[[H" beginning-of-line
+bindkey "^[[H"  beginning-of-line
 bindkey "^[[F"  end-of-line
-# bindkey "^[[1~" backward-word
 bindkey "^[[5D" backward-word
-# bindkey "^[[4~" forward-word
 bindkey "^[[5C" forward-word
 bindkey "^[[3~" delete-char
-bindkey "^[^N" newtab
-bindkey "^[[Z" reverse-menu-complete
-
-# complete on up and down keys
-bindkey "\e[B" history-search-forward
-bindkey "\e[A" history-search-backward
-
-# 
+bindkey "^[^N"  newtab
+bindkey "^[[Z"  reverse-menu-complete
+bindkey "\e[B"  history-search-forward
+bindkey "\e[A"  history-search-backward
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
-
-bindkey "^H" backward-delete-word
-
-bindkey " " magic-space    # also do history expansion on space
-bindkey "^I" complete-word # complete on tab, leave expansion to _expand
+bindkey "^H"    backward-delete-word
+bindkey " "     magic-space   # also do history expansion on space
+bindkey "^I"    complete-word # complete on tab, leave expansion to _expand

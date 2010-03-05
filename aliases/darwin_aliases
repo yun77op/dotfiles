@@ -1,9 +1,5 @@
 # Apache
-alias apache.start='sudo /opt/local/apache2/bin/apachectl'
-
-# grep
-alias "h?"="history | grep "
-alias "ps?"="ps aux | grep "
+# alias apache.start='sudo /opt/local/apache2/bin/apachectl'
 
 # Misc
 # alias emacs='open -a /Applications/Emacs.app'
@@ -11,7 +7,8 @@ alias "ps?"="ps aux | grep "
 alias vlc='open -a /Applications/VLC.app'
 
 # Mysql
-alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
-alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
+# alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
+# alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
 
 # alias vi="/Applications/Vim.app/Contents/MacOS/Vim"
+alias mate='open -a TextMate.app'
