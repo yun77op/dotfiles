@@ -1,2 +1,0 @@
-#compdef app
-_files -W /Applications/ -/
