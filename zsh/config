@@ -7,7 +7,7 @@ autoload -U ~/.zsh/functions/*(:t)
 autoload -U colors && colors
 autoload -U compinit && compinit
 
-HISTFILE=~/.zsh_history
+HISTFILE=~/.history
 HISTSIZE=1000
 SAVEHIST=1000
 
@@ -48,19 +48,27 @@ zle -N newtab
 # KEY BINDING
 # -------------------------------------------------------------------
 
+bindkey "^[[5D" backward-word # iTerm can't read it
+bindkey "^[[5C" forward-word  # iTerm can't read it
 bindkey "^[[5~" up-line-or-history
 bindkey "^[[6~" down-line-or-history
 bindkey "^[[H"  beginning-of-line
 bindkey "^[[F"  end-of-line
-bindkey "^[[5D" backward-word
-bindkey "^[[5C" forward-word
 bindkey "^[[3~" delete-char
 bindkey "^[^N"  newtab
 bindkey "^[[Z"  reverse-menu-complete
 bindkey "\e[B"  history-search-forward
 bindkey "\e[A"  history-search-backward
-bindkey "\e[1~" beginning-of-line
-bindkey "\e[4~" end-of-line
-bindkey "^H"    backward-delete-word
 bindkey " "     magic-space   # also do history expansion on space
+bindkey "^A"    beginning-of-line
+bindkey "^E"    end-of-line
+bindkey "^H"    backward-delete-word
 bindkey "^I"    complete-word # complete on tab, leave expansion to _expand
+bindkey "^J"    accept-line
+bindkey "^K"    kill-line
+bindkey "^K^K"  kill-whole-line
+bindkey "^L"    clear-screen
+bindkey "^M"    accept-line
+bindkey "^R"    redisplay
+bindkey "^U"    vi-kill-line
+bindkey "^V"    quoted-insert
