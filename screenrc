@@ -17,6 +17,9 @@ pow_detach_msg    "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 autodetach        on
 defutf8           on
 
+bindkey -k k1 prev
+bindkey -k k2 next
+
 # current status
 hardstatus alwayslastline "${USER}@%H | %M%d %c | %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
 
