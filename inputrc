@@ -18,6 +18,7 @@
 # set completion-ignore-case On
 
 # I'm not sure what keys these are!
+"^A" : beginning-of-line
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 "\e[5~": beginning-of-history

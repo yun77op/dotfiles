@@ -1,6 +1,7 @@
 # -------------------------------------------------------------------
 # Settings
 # -------------------------------------------------------------------
+escape            ^Zz
 crlf              off           # No Microsoft linebreaks
 startup_message   off           # bypass GPL notice (we're aware)
 defscrollback     15000         # big scrollback
@@ -28,7 +29,6 @@ attrcolor b ".I"
  
 # allow 256 colors
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-
 termcapinfo xterm ti@:te@
 
 # screen -t shell 0 zsh
