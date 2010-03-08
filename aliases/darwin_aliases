@@ -3,7 +3,6 @@
 
 # Misc
 # alias emacs='open -a /Applications/Emacs.app'
-# alias mplayer='/Applications/MPlayer\ OSX.app/Contents//Resources/External_Binaries/mplayer.app/Contents/MacOS/mplayer'
 alias vlc='open -a /Applications/VLC.app'
 
 # Mysql
