@@ -49,6 +49,7 @@ unset MAILCHECK
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=1;;40:ex=1;;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 
 # ----------------------------------------------------------------------
 # DISPLAY
