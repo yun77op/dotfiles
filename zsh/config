@@ -69,6 +69,6 @@ bindkey "^K"    kill-line
 bindkey "^K^K"  kill-whole-line
 bindkey "^L"    clear-screen
 bindkey "^M"    accept-line
-bindkey "^R"    redisplay
+bindkey "^R"    history-incremental-search-backward
 bindkey "^U"    vi-kill-line
 bindkey "^V"    quoted-insert
