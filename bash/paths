@@ -55,7 +55,7 @@ export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=1;;40:ex=1;;40:bd=34;46:cd=34;43
 # DISPLAY
 # ----------------------------------------------------------------------
 
-test -n "$SSH_TTY" && export DISPLAY=:0.0
+test -n $SSH_CONNECTION && export DISPLAY=:0.0
 
 # ----------------------------------------------------------------------
 # PAGER / EDITOR
