@@ -7,21 +7,15 @@ autoload -U ~/.zsh/functions/*(:t)
 autoload -U colors && colors
 autoload -U compinit && compinit
 
-HISTFILE=~/.history
-HISTSIZE=1000
-SAVEHIST=1000
-
 # -------------------------------------------------------------------
 # MAN ZSHOPTIONS
 # -------------------------------------------------------------------
 
-setopt NO_BG_NICE # don't nice background tasks
+setopt NO_BG_NICE       # don't nice background tasks
 setopt NO_HUP
 setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
-setopt SHARE_HISTORY # share history between sessions ???
-setopt EXTENDED_HISTORY # add timestamps to history
+setopt LOCAL_OPTIONS    # allow functions to have local options
+setopt LOCAL_TRAPS      # allow functions to have local traps
 setopt PROMPT_SUBST
 setopt CORRECT
 setopt COMPLETE_IN_WORD
@@ -31,8 +25,12 @@ setopt PRINT_EXIT_VALUE # Print the exit value of programs with non-zero exit st
 # HISTORY
 # -------------------------------------------------------------------
 
+HISTFILE=~/.history
+HISTSIZE=1000
+SAVEHIST=1000
+
 setopt APPEND_HISTORY                   # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share it across sessions
+setopt EXTENDED_HISTORY                 # add timestamps to history
 setopt HIST_IGNORE_ALL_DUPS             # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_SPACE                # If a line starts with a space, don't save it.
@@ -41,6 +39,8 @@ setopt HIST_VERIFY
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
+setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share it across sessions
+setopt SHARE_HISTORY                    # share history between sessions
 
 zle -N newtab
 
@@ -48,27 +48,43 @@ zle -N newtab
 # KEY BINDING
 # -------------------------------------------------------------------
 
-bindkey "^[[5D" backward-word # iTerm can't read it
-bindkey "^[[5C" forward-word  # iTerm can't read it
-bindkey "^[[5~" up-line-or-history
-bindkey "^[[6~" down-line-or-history
-bindkey "^[[H"  beginning-of-line
+bindkey -e
+
+bindkey '^[[5D' emacs-backward-word
+bindkey '^[[5C' emacs-forward-word
+bindkey ';5D'   emacs-backward-word
+bindkey ';5C'   emacs-forward-word
+
+bindkey "^[[1~" vi-beginning-of-line   # Home
+bindkey "^[[2~" overwrite-mode         # Insert
+bindkey "^[[3~" delete-char            # Del
+bindkey "^[[4~" vi-end-of-line         # End
+bindkey "^[[5~" vi-backward-blank-word # Page Up
+bindkey "^[[6~" vi-forward-blank-word  # Page Down
+# bindkey "^[[5~" up-line-or-history
+# bindkey "^[[6~" down-line-or-history
 bindkey "^[[F"  end-of-line
+bindkey "^[[H"  beginning-of-line
+bindkey "^[[Z"  reverse-menu-complete
 bindkey "^[[3~" delete-char
 bindkey "^[^N"  newtab
-bindkey "^[[Z"  reverse-menu-complete
 bindkey "\e[B"  history-search-forward
 bindkey "\e[A"  history-search-backward
-bindkey " "     magic-space   # also do history expansion on space
+bindkey " "     magic-space           # also do history expansion on space
 bindkey "^A"    beginning-of-line
 bindkey "^E"    end-of-line
 bindkey "^H"    backward-delete-word
-bindkey "^I"    complete-word # complete on tab, leave expansion to _expand
+bindkey "^I"    complete-word         # complete on tab, leave expansion to _expand
 bindkey "^J"    accept-line
 bindkey "^K"    kill-line
 bindkey "^K^K"  kill-whole-line
 bindkey "^L"    clear-screen
 bindkey "^M"    accept-line
+bindkey "^N"    vi-down-line-or-history
+bindkey "^P"    vi-up-line-or-history
 bindkey "^R"    history-incremental-search-backward
 bindkey "^U"    vi-kill-line
 bindkey "^V"    quoted-insert
+bindkey "^W"    backward-delete-word
+
+
