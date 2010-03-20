@@ -20,6 +20,7 @@ defutf8           on
 
 bindkey "^[[1;3D" prev
 bindkey "^[[1;3C" next
+bindkey "£" next
 
 # current status
 hardstatus alwayslastline "${USER}@%H | %M%d %c | %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
