@@ -10,8 +10,9 @@ set certificate_file=~/.mutt/certificates
  
 set move = no
  
-set sort = 'threads'
-set sort_aux = 'last-date-received'
+set sort='threads'                        # default sort messages by thread
+set sort_browser='reverse-date'           # showing mbox list default to newest first
+set sort_aux='reverse-last-date-received' # showing threads with youngest message last
 set imap_check_subscribed
  
 ignore "Authentication-Results:"
@@ -45,6 +46,6 @@ ignore "X-Spam-Bar"
 ignore "In-Reply-To"
 ignore "References"
 ignore "X-System-Of-Record"
- 
- 
+
 hdr_order Date From To Cc
+auto_view text/html
