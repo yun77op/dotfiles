@@ -1,0 +1,22 @@
+set guioptions=rbTN
+set runtimepath=~/.vimperator
+set titlestring=Firefox
+set messages=100
+set verbose=1
+set defsearch=google
+set wildoptions=auto
+set complete=slS
+set history=1000
+set newtab=all
+set showtabline=2
+set laststatus=2
+set popups=tab
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+set focuscontent
+ 
+set visualbell
+highlight Bell display: none;
+colorscheme obsidian
