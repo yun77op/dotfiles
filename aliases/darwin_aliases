@@ -9,5 +9,5 @@ alias vlc='open -a /Applications/VLC.app'
 # alias mysql.start='cd /opt/local;sudo /opt/local/lib/mysql5/bin/mysqld_safe'
 # alias mysql.stop='echo "sudo password";sudo echo "root@localhost password";sudo mysqladmin5 shutdown -p'
 
-# alias vi="/Applications/Vim.app/Contents/MacOS/Vim"
+test -n "$(command -v mvim)" && alias gvim='mvim'
 alias mate='open -a TextMate.app'

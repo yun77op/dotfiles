@@ -16,7 +16,14 @@ set ignorecase
 set incsearch
 set smartcase
 set focuscontent
- 
 set visualbell
+
 highlight Bell display: none;
+
 colorscheme obsidian
+
+silent qmark f http://facebook.com/
+silent qmark g http://github.com/
+silent qmark m http://mail.google.com/
+silent qmark r http://reader.google.com/
+silent qmark t http://translate.google.com/

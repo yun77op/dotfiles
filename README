@@ -1,5 +1,3 @@
-Ryan Bates Dot Files
-
 These are config files to set up a system the way I like it.
 
 
@@ -13,20 +11,14 @@ Installation
 
 Environment
 
-I am running on Mac OS X, but it will likely work on Linux as well with 
-minor fiddling. I primarily use zsh, but this includes some older bash 
-files as well. If you would like to switch to zsh, you can do so with 
-the following command.
+I am running on Mac OS X and Ubuntu. I primarily use zsh, but this 
+includes some older bash files as well. If you would like to switch 
+to zsh, you can do so with the following command.
 
   chsh -s /bin/zsh
 
 
 Features
-
-I normally place all of my coding projects in ~/code, so this directory 
-can easily be accessed (and tab completed) with the "c" command.
-
-  c railsca<tab>
 
 There is also an "h" command which behaves similar, but acts on the 
 home path.
@@ -63,4 +55,4 @@ also use show_log and hide_log in script/console to show the log inline.
   migrate  # rake db:migrate db:test:clone
   scaffold # script/generate nifty_scaffold
 
-See the other aliases in ~/.zsh/aliases
+See the other aliases in ~/.aliases/*

@@ -51,6 +51,21 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LS_COLORS="di=1;;40:ln=1;;40:so=1;;40:pi=1;;40:ex=1;;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 
+# if the dircolors utility is available, set that up to
+if test -n "$(command -v gdircolors)"; then
+  dircolors=`which gdircolors`
+elif test -n "$(command -v dircolors)"; then
+  dircolors=`which dircolors`
+fi
+test -n "$dircolors" && {
+  COLORS=/etc/DIR_COLORS
+  test -e "/etc/DIR_COLORS.$TERM" && COLORS="/etc/DIR_COLORS.$TERM"
+  test -e "$HOME/.dircolors" && COLORS="$HOME/.dircolors"
+  test ! -e "$COLORS" && COLORS=
+    eval `$dircolors --sh $COLORS`
+}
+unset dircolors
+ 
 # ----------------------------------------------------------------------
 # DISPLAY
 # ----------------------------------------------------------------------

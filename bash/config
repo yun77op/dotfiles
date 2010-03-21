@@ -1,1 +1,1 @@
-export PS1="\w\n➜  ";
+export PS1="\w\n>>> ";
