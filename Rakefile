@@ -7,12 +7,17 @@ desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
   Dir['*'].each do |file|
-    next if %w[Rakefile README].include?(file)
+    next if %w[ Rakefile README].include?(file)
     
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
       if replace_all
         replace_file(file)
       else
+        if File.symlink?(home_path(file)) && \
+          local_path(file) == File.readlink(home_path(file))
+          print "already linked ~/.#{file}\n"
+          next
+        end
         print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
         case $stdin.gets.chomp
         when 'a'
@@ -55,4 +60,12 @@ def link_file(file)
     puts "linking ~/.#{file}"
     system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
   end
+end
+
+def local_path(file)
+  File.join(File.dirname(__FILE__), file)
+end
+
+def home_path(file)
+  File.join(ENV["HOME"], ".#{file.sub('.erb', '')}")
 end
