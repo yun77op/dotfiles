@@ -110,8 +110,7 @@ alias clojure.script="java clojure.lang.Script"
 
 case "${SHELL}" in
   *bash)
-    # homebrew
-    alias reload='. ~/.bash_profile'
+    alias reload='. ~/.bashrc'
     ;;
   *zsh)
     alias reload='. ~/.zshrc'

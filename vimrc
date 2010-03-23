@@ -9,10 +9,14 @@ set backspace=indent,eol,start
 
 set nobackup
 set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=100     " keep 50 lines of command line history
+set ruler           " show the cursor position all the time
+set autoread        " watch for file changes
+set more            " use more prompt
+set noerrorbells    " no error bells please
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
+set dictionary=/usr/share/dict/words " more words!
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -60,24 +64,24 @@ else
 
 endif " has("autocmd")
 
-" if has("folding")
-  " set foldenable
-  " set foldmethod=syntax
-  " set foldlevel=1
-  " set foldnestmax=2
-  " set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
-" endif
+if has("folding")
+  set nofoldenable
+  set foldmethod=syntax    " fold on syntax automagically, always
+  set foldlevel=1
+  set foldnestmax=10
+  set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+  set foldcolumn=2        " 2 lines of column for fold showing, always
+endif
 
 " Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set expandtab
+" http://vimcasts.org/episodes/tabs-and-spaces/
+set ts=2 sts=2 sw=2 expandtab
 
 " Always display the status line
 set laststatus=2
 
 " \ is the leader character
-let mapleader = ","
+let mapleader=","
 
 " Edit the README_FOR_APP (makes :R commands work)
 map <Leader>R :e doc/README_FOR_APP<CR>
@@ -119,7 +123,7 @@ map <Leader>< :m -2 <CR>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Maps autocomplete to tab
-imap <Tab> <C-N>
+" imap <Tab> <C-N>
 
 " Duplicate a selection
 " Visual mode: D
@@ -139,7 +143,8 @@ imap <C-F> <C-R>=expand("%")<CR>
 vmap P p :call setreg('"', getreg('0')) <CR>
 
 " Display extra whitespace
-" set list listchars=tab:»·,trail:·
+" Use the same symbols as TextMate for tabstops and EOLs
+set list listchars=tab:▸\ ,eol:¬
 
 " Edit routes
 command! Rroutes :e config/routes.rb
@@ -156,9 +161,7 @@ if executable("ack")
 endif
 
 " Color scheme
-" colorscheme vividchalk
-" highlight NonText guibg=#060606
-" highlight Folded  guibg=#0A0A0A guifg=#9090D0
+colorscheme railscasts
 
 " Numbers
 set number
@@ -171,7 +174,8 @@ let g:snippetsEmu_key = "<S-Tab>"
 " (only complete to the longest unambiguous match, and show a menu)
 set completeopt=longest,menu
 set wildmode=list:longest,list:full
-set complete=.,t
+set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
+" set complete=.,t
 
 " case only matters with mixed case expressions
 set ignorecase
@@ -182,5 +186,5 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 let g:fuf_splitPathMatching=1
 
-# Open URL
-command -bar -nargs=1 OpenURL :!open <args>
+" Open URL
+" command -bar -nargs=1 OpenURL :!open <args>
