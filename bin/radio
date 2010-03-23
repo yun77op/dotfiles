@@ -1,0 +1,19 @@
+#!/bin/sh
+
+case "$1" in
+  404)
+    `mplayer http://www.erreur404.org/radio404.pls`
+    ;;
+    
+  bassdrive)
+    `mplayer http://www.bassdrive.com/v2/streams/BassDrive6.pls`
+    ;;
+  
+  fip)
+    `mplayer http://mp3.live.tv-radio.com/fip/all/fiphautdebit.mp3`
+    ;;
+  
+  *)
+    echo "This radio does not exists"
+    ;;
+esac
