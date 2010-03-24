@@ -66,7 +66,6 @@ alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
-alias railsmate='ls -1 | egrep -vi "(log|tmp|cache)" | xargs mate'
 
 # ----------------------------------------------------------------------
 # CURL
@@ -100,15 +99,12 @@ fi
 # Mozilla rhino found at ftp://ftp.mozilla.org/pub/mozilla.org/js
 alias js="java -jar $HOME/lib/js.jar"
 alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
-# clojure
-alias clojure.console="rlwrap java clojure.lang.Repl"
-alias clojure.script="java clojure.lang.Script"
 
 # ----------------------------------------------------------------------
 # RELOAD
 # ----------------------------------------------------------------------
 
-case "${SHELL}" in
+case $SHELL in
   *bash)
     alias reload='. ~/.bashrc'
     ;;
