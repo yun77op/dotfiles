@@ -112,3 +112,17 @@ case $SHELL in
     alias reload='. ~/.zshrc'
     ;;
 esac
+
+
+# ----------------------------------------------------------------------
+# PLATEFORM SPECIFIC
+# ----------------------------------------------------------------------
+
+case "${OSTYPE}" in
+  darwin*)
+    . ~/.aliases/darwin_aliases
+    ;;
+  linux*)
+    . ~/.aliases/linux_aliases
+    ;;
+esac

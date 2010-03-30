@@ -1,5 +1,5 @@
 test -f ~/.bash/env         && . ~/.bash/env
-test -f ~/.bash/aliases     && . ~/.bash/aliases
+test -f ~/.aliases/aliases  && . ~/.aliases/aliases
 test -f ~/.bash/completions && . ~/.bash/completions
 test -f ~/.bash/config      && . ~/.bash/config
 test -s ~/.rvm/scripts/rvm  && . ~/.rvm/scripts/rvm
