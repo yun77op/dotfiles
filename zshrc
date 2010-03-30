@@ -1,4 +1,4 @@
-test -f ~/.bash/paths      && . ~/.bash/paths
+test -f ~/.bash/env        && . ~/.bash/env
 test -f ~/.zsh/config      && . ~/.zsh/config
 test -f ~/.bash/aliases    && . ~/.bash/aliases
 test -f ~/.zsh/completion  && . ~/.zsh/completion

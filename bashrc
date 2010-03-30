@@ -1,4 +1,4 @@
-test -f ~/.bash/paths       && . ~/.bash/paths
+test -f ~/.bash/env         && . ~/.bash/env
 test -f ~/.bash/aliases     && . ~/.bash/aliases
 test -f ~/.bash/completions && . ~/.bash/completions
 test -f ~/.bash/config      && . ~/.bash/config
