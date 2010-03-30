@@ -187,8 +187,8 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 let g:fuf_splitPathMatching=1
 
 " NERD_tree
-autocmd VimEnter * NERDTree " NERDTree launched on statut
-autocmd VimEnter * wincmd p " focus on main window
+" autocmd VimEnter * NERDTree " NERDTree launched on statut
+" autocmd VimEnter * wincmd p " focus on main window
 
 " Open URL
 " command -bar -nargs=1 OpenURL :!open <args>
