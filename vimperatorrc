@@ -22,6 +22,7 @@ highlight Bell display: none;
 
 colorscheme obsidian
 
+silent qmark c http://www.google.com/calendar/render?tab=mc
 silent qmark f http://facebook.com/
 silent qmark g http://github.com/
 silent qmark m http://mail.google.com/
