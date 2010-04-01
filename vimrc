@@ -32,6 +32,10 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 
+if has("gui_macvim")
+  let macvim_hig_shift_movement = 1
+endif
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -161,7 +165,7 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme railscasts
+colorscheme digerati
 
 " Numbers
 set number
