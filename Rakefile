@@ -32,7 +32,7 @@ task :install do
         end
       end
     else
-      link_file(file)
+      replace_file(file)
     end
   end
 end
