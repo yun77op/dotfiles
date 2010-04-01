@@ -97,7 +97,7 @@ fi
 # ----------------------------------------------------------------------
 
 # Mozilla rhino found at ftp://ftp.mozilla.org/pub/mozilla.org/js
-alias js="java -jar $HOME/lib/js.jar"
+alias js="rlwrap java -jar $HOME/lib/js.jar"
 alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
 
 # ----------------------------------------------------------------------
