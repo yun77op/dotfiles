@@ -30,6 +30,10 @@ map Q gq
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
+  
+  " highlight text after 80th column
+  hi OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.*/
 endif
 
 if has("gui_macvim")
