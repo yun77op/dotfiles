@@ -5,7 +5,15 @@ fpath=(~/.zsh/functions $fpath)
 
 autoload -U ~/.zsh/functions/*(:t)
 autoload -U colors && colors
+# Load completions for git, ruby etc.
 autoload -U compinit && compinit
+
+# Show elapsed time if command took more than 10s
+REPORTTIME=10
+# Ask to complete
+LISTMAX=0
+# Ctrl+w delete after other characters, not just spaces
+WORDCHARS=${WORDCHARS//[&=\/;\!#%\{]}
 
 # -------------------------------------------------------------------
 # MAN ZSHOPTIONS
