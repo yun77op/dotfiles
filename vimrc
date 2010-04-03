@@ -17,6 +17,7 @@ set noerrorbells    " no error bells please
 set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
 set dictionary=/usr/share/dict/words " more words!
+set gfn:Inconsolata:h14
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -37,7 +38,7 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 if has("gui_macvim")
-  let macvim_hig_shift_movement = 1
+  " let macvim_hig_shift_movement = 1
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -192,11 +193,14 @@ set smartcase
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
+"map to fuzzy finder text mate stylez
+nnoremap <c-f> :FufFile<CR>
 let g:fuf_splitPathMatching=1
 
 " NERD_tree
 " autocmd VimEnter * NERDTree " NERDTree launched on statut
 " autocmd VimEnter * wincmd p " focus on main window
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 " Open URL
 " command -bar -nargs=1 OpenURL :!open <args>
