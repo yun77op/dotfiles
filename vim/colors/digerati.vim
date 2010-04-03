@@ -16,7 +16,7 @@ let colors_name = "digerati"
 if version >= 700
   hi CursorLine guibg=#4f4f4f
   hi CursorColumn guibg=#2d2d2d
-  hi MatchParen guifg=#ffffff guibg=#4f4f4f gui=bold
+  hi MatchParen guifg=#404040 guibg=#ffffff gui=bold
   hi Pmenu 		guifg=#404040 guibg=#dcdcdc
   hi PmenuSel 	guifg=#ffffff guibg=#93b5bf
 endif
