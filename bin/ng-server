@@ -1,0 +1,2 @@
+LIB_DIR="$HOME/lib"
+java -cp "$LIB_DIR/clojure.jar:$LIB_DIR/clojure-contrib.jar:$LIB_DIR/vimclojure.jar" com.martiansoftware.nailgun.NGServer 127.0.0.1
