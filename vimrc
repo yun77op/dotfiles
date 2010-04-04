@@ -6,7 +6,7 @@ set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
+set cursorline      " show the cursor line
 set nobackup
 set nowritebackup
 set history=100     " keep 50 lines of command line history
@@ -15,9 +15,10 @@ set autoread        " watch for file changes
 set more            " use more prompt
 set noerrorbells    " no error bells please
 set showcmd         " display incomplete commands
+set showmode        " show the mode all the time
 set incsearch       " do incremental searching
 set dictionary=/usr/share/dict/words " more words!
-set gfn:Inconsolata:h14
+set whichwrap+=<,>,[,] " allow arrow do wrap arround
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -25,6 +26,12 @@ map Q gq
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
+
+if has("gui_running")
+  " Color scheme
+  colorscheme digerati
+  set gfn:Inconsolata:h14
+endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -169,9 +176,6 @@ if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
 
-" Color scheme
-colorscheme digerati
-
 " Numbers
 set number
 set numberwidth=5
@@ -194,7 +198,7 @@ set smartcase
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 "map to fuzzy finder text mate stylez
-nnoremap <c-f> :FufFile<CR>
+nnoremap <c-f> :FuzzyFinderTextMate<CR>
 let g:fuf_splitPathMatching=1
 
 " NERD_tree
@@ -204,3 +208,7 @@ nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 " Open URL
 " command -bar -nargs=1 OpenURL :!open <args>
+
+" clojure configuration
+let clj_highlight_builtins=1
+let clj_paren_rainbow=1
