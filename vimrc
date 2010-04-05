@@ -31,6 +31,10 @@ if has("gui_running")
   " Color scheme
   colorscheme digerati
   set gfn:Inconsolata:h14
+
+  " highlight text after 80th column
+  hi OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.*/
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -38,10 +42,6 @@ endif
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
-  
-  " highlight text after 80th column
-  hi OverLength ctermbg=red ctermfg=white guibg=#592929
-  match OverLength /\%81v.*/
 endif
 
 if has("gui_macvim")
@@ -198,7 +198,7 @@ set smartcase
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 "map to fuzzy finder text mate stylez
-nnoremap <c-f> :FuzzyFinderTextMate<CR>
+nnoremap <c-f> :FufFile **/<CR>
 let g:fuf_splitPathMatching=1
 
 " NERD_tree
