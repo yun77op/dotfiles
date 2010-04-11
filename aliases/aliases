@@ -88,8 +88,8 @@ if test -n "$(command -v postgres)"; then
   alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D $PG_DIR'"
   alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D $PG_DIR'"
   alias pg.stop="sudo su postgres -c 'pg_ctl stop -s -m fast -D $PG_DIR'"
+  # convert data output to csv
   alias pg2csv='psql -F\; -A --pset footer'
-  # ex: psql -F\; -A --pset footer -f input_file.sql -o output_file.csv database_name
 fi
 
 # ----------------------------------------------------------------------
@@ -97,7 +97,10 @@ fi
 # ----------------------------------------------------------------------
 
 # Mozilla rhino found at ftp://ftp.mozilla.org/pub/mozilla.org/js
-alias js='java -cp "$HOME/lib/js.jar:$HOME/lib/jline.jar" org.mozilla.javascript.tools.shell.Main'
+alias js='java -cp "$HOME/lib/js.jar:$HOME/lib/jline.jar" \
+  org.mozilla.javascript.tools.shell.Main'
+alias cljc='java -cp "$HOME/lib/clojure.jar:$HOME/lib/jline.jar" \
+  jline.ConsoleRunner clojure.main'
 alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
 
 # ----------------------------------------------------------------------

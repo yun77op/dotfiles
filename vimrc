@@ -12,8 +12,14 @@ set nowritebackup
 set history=100     " keep 50 lines of command line history
 set ruler           " show the cursor position all the time
 set autoread        " watch for file changes
+set list 
+set listchars=tab:▸\ ,eol:¬ " Display extra whitespace
+set matchpairs+=<:> " add < and > to match pairs
 set more            " use more prompt
 set noerrorbells    " no error bells please
+set nohidden        " close the buffer when I close a tab
+set number
+set numberwidth=5
 set showcmd         " display incomplete commands
 set showmode        " show the mode all the time
 set incsearch       " do incremental searching
@@ -30,11 +36,13 @@ map Q gq
 if has("gui_running")
   " Color scheme
   colorscheme digerati
-  set gfn:Inconsolata:h14
+  set gfn:Inconsolata:h13
 
   " highlight text after 80th column
-  hi OverLength ctermbg=red ctermfg=white guibg=#592929
   match OverLength /\%81v.*/
+  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+else
+
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -42,10 +50,6 @@ endif
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
-endif
-
-if has("gui_macvim")
-  " let macvim_hig_shift_movement = 1
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -76,7 +80,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -146,7 +150,7 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 vmap D y'>p
 
 " For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
+au! BufRead,BufNewFile *.haml  setfiletype haml
 
 " No Help, please
 nmap <F1> <Esc>
@@ -157,10 +161,6 @@ imap <C-F> <C-R>=expand("%")<CR>
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
 vmap P p :call setreg('"', getreg('0')) <CR>
-
-" Display extra whitespace
-" Use the same symbols as TextMate for tabstops and EOLs
-set list listchars=tab:▸\ ,eol:¬
 
 " Edit routes
 command! Rroutes :e config/routes.rb
@@ -175,10 +175,6 @@ endif
 if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
-
-" Numbers
-set number
-set numberwidth=5
 
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
