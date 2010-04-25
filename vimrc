@@ -12,14 +12,14 @@ set nowritebackup
 set history=100     " keep 50 lines of command line history
 set ruler           " show the cursor position all the time
 set autoread        " watch for file changes
-set list 
+set list            " display invisible characters
 set listchars=tab:▸\ ,eol:¬ " Display extra whitespace
 set matchpairs+=<:> " add < and > to match pairs
 set more            " use more prompt
 set noerrorbells    " no error bells please
 set nohidden        " close the buffer when I close a tab
-set number
-set numberwidth=5
+set number          " display line number
+set numberwidth=5   " line number width
 set showcmd         " display incomplete commands
 set showmode        " show the mode all the time
 set incsearch       " do incremental searching
@@ -36,13 +36,18 @@ map Q gq
 if has("gui_running")
   " Color scheme
   colorscheme digerati
-  set gfn:Inconsolata:h13
 
   " highlight text after 80th column
   match OverLength /\%81v.*/
   highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 else
+  " nothing there...
+endif
 
+if has("mac_gui")
+  set gfn:Inconsolata:h13
+else
+  " nothing there...
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -102,9 +107,6 @@ set laststatus=2
 
 " \ is the leader character
 let mapleader=","
-
-" Edit the README_FOR_APP (makes :R commands work)
-map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
 map <Leader>m :Rmodel 
@@ -183,8 +185,8 @@ let g:snippetsEmu_key = "<S-Tab>"
 " (only complete to the longest unambiguous match, and show a menu)
 set completeopt=longest,menu
 set wildmode=list:longest,list:full
-set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
-" set complete=.,t
+" set complete=.,w,b,u,U,t,i,d  " do lots of scanning on tab completion
+set complete=.,t
 
 " case only matters with mixed case expressions
 set ignorecase
