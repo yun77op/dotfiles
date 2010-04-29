@@ -24,6 +24,7 @@ set showcmd         " display incomplete commands
 set showmode        " show the mode all the time
 set incsearch       " do incremental searching
 set dictionary=/usr/share/dict/words " more words!
+set visualbell
 set whichwrap+=<,>,[,] " allow arrow do wrap arround
 
 " Don't use Ex mode, use Q for formatting
@@ -159,6 +160,7 @@ nmap <F1> <Esc>
 
 " Press ^F from insert mode to insert the current file name
 imap <C-F> <C-R>=expand("%")<CR>
+inoremap ii <Esc>
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
