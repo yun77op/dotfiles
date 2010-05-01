@@ -4,26 +4,30 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-set cursorline      " show the cursor line
-set nobackup
-set nowritebackup
-set history=100     " keep 50 lines of command line history
-set ruler           " show the cursor position all the time
 set autoread        " watch for file changes
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set cursorline      " show the cursor line
+set dictionary=/usr/share/dict/words " more words!
+set encoding=utf-8  " Force UTF-8 as default
+set history=100     " How many commands to remember
+set incsearch       " do incremental searching
+set iskeyword+=_,$,@,%,#,- " these shouldn't divide words.
 set list            " display invisible characters
 set listchars=tab:▸\ ,eol:¬ " Display extra whitespace
+set magic           " Should always be on
 set matchpairs+=<:> " add < and > to match pairs
 set more            " use more prompt
+set nobackup
+set nowritebackup
+set noconfirm       " Gives you a confirm-dialog instead of a flat refusal
 set noerrorbells    " no error bells please
 set nohidden        " close the buffer when I close a tab
 set number          " display line number
 set numberwidth=5   " line number width
+set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
 set showmode        " show the mode all the time
-set incsearch       " do incremental searching
-set dictionary=/usr/share/dict/words " more words!
+set termencoding=utf-8 " Also for terminals.
 set visualbell
 set whichwrap+=<,>,[,] " allow arrow do wrap arround
 
