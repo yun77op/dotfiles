@@ -4,3 +4,4 @@
 --follow
 --group
 --all
+--pager=less -R
