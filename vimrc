@@ -22,6 +22,7 @@ set nowritebackup
 set noconfirm       " Gives you a confirm-dialog instead of a flat refusal
 set noerrorbells    " no error bells please
 set nohidden        " close the buffer when I close a tab
+set noremap
 set number          " display line number
 set numberwidth=5   " line number width
 set ruler           " show the cursor position all the time
@@ -147,9 +148,18 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>> :m +1 <CR>
 map <Leader>< :m -2 <CR>
 
+" arrows behave as soft wrap
+noremap <Down> gj
+noremap <Up> gk
+
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+" 
+imap <C-Del> dw
+imap <C-BS> <C-W>
+
 
 " Maps autocomplete to tab
 " imap <Tab> <C-N>
