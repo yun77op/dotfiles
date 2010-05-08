@@ -30,6 +30,8 @@ set showmode        " show the mode all the time
 set termencoding=utf-8 " Also for terminals.
 set visualbell
 set whichwrap+=<,>,[,] " allow arrow do wrap arround
+set wildignore+=*.pyc,*.DS_Store,*.db
+set wildmode=longest,list
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
