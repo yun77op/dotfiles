@@ -213,6 +213,10 @@ set smartcase
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
+" Do you absolutely hate trailing whitespace or tabs in your files?
+" Hitting F5 will clean out all that junk for you.
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+
 "map to fuzzy finder text mate stylez
 nnoremap <c-f> :FufFile **/<CR>
 let g:fuf_splitPathMatching=1
