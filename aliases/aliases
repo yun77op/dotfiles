@@ -17,6 +17,7 @@ alias svnprop='svn propset svn:keywords Id,Source,Author,HeadURL,Revision,Date'
 # ----------------------------------------------------------------------
 
 alias cp='cp -R'
+test -n "$(command -v lftp)"  && alias ftp='lftp'
 test -n "$(command -v less)" && alias more='less -RciqMSj5'
 test -n "$(command -v vim)"  && alias vi='vim'
 alias lines='wc -l'
