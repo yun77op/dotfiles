@@ -5,11 +5,14 @@
 # we want the various sbins on the path along with /usr/local/bin
 PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
  
-# put ~/bin on PATH if you have it
+# add ~/bin on PATH if you have it
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
  
-# put ~/.bin on PATH if you have it
+# add ~/.bin on PATH if you have it
 test -d "$HOME/.bin" && PATH="$HOME/.bin:$PATH"
+
+# add seedjs bin to path
+test -d "$HOME/.seeds" && PATH=~/.seeds/bin:$PATH
 
 export PATH
 
