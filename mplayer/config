@@ -1,4 +1,4 @@
-# Write your default config options here!
-fs=1
-idx=1
-volume=70
+fs=1        # fullscreen
+idx=1       # build index
+volume=60   # volume set to 60%
+af=volnorm  # normalize audio
