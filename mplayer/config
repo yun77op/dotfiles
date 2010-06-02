@@ -1,5 +1,4 @@
 af=volnorm    # normalize audio
-demuxer=lavf  # more tolerance of malformed files
 fs=1          # fullscreen
 idx=1         # build index
 slang=fre     # subtitle in french
