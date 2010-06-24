@@ -103,6 +103,8 @@ alias js='java -cp "$HOME/lib/js.jar:$HOME/lib/jline.jar" \
 alias cljc='java -cp "$HOME/lib/clojure.jar:$HOME/lib/jline.jar" \
   jline.ConsoleRunner clojure.main'
 alias cssembed="java -jar $HOME/lib/cssembed-0.3.2.jar"
+alias bsh='java -cp "$HOME/lib/bsh-core.jar:$HOME/lib/jline.jar" \
+  jline.ConsoleRunner bsh.Interpreter'
 
 # ----------------------------------------------------------------------
 # RELOAD
