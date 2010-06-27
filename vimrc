@@ -46,8 +46,8 @@ if has("gui_running")
   colorscheme digerati
 
   " highlight text after 80th column
-  match OverLength /\%81v.*/
   highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.*/
 else
   " nothing there...
 endif
