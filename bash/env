@@ -23,15 +23,7 @@ export PATH
 # MANPATH
 # ----------------------------------------------------------------------
 
-case "${OSTYPE}" in
-  darwin*)
-    # homebrew
-    MANPATH="`brew --prefix`/share/man:$MANPATH"
-    ;;
-  linux*)
-    # nothing yet
-    ;;
-esac
+MANPATH="/usr/local/share/man:$MANPATH"
 
 export MANPATH
 
