@@ -11,18 +11,13 @@ test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 # add ~/.bin on PATH if you have it
 test -d "$HOME/.bin" && PATH="$HOME/.bin:$PATH"
 
-# add seedjs bin to path
-test -d "$HOME/.seeds" && PATH=~/.seeds/bin:$PATH
+# add seedjs binaries to path
+test -d "$HOME/.seeds" && PATH="$HOME/.seeds/bin:$PATH"
+
+# add ringojs binaries to path
+test -d "$HOME/src/ringojs" && PATH="$HOME/src/ringojs/bin"
 
 export PATH
-
-# ----------------------------------------------------------------------
-# RIP CONFIG
-# ----------------------------------------------------------------------
-
-export RIPDIR=$HOME/.rip
-export RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
-export PATH="$PATH:$RIPDIR/active/bin"
 
 # ----------------------------------------------------------------------
 # MANPATH
