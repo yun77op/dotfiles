@@ -14,9 +14,6 @@ test -d "$HOME/.bin" && PATH="$HOME/.bin:$PATH"
 # add seedjs binaries to path
 test -d "$HOME/.seeds" && PATH="$HOME/.seeds/bin:$PATH"
 
-# add ringojs binaries to path
-test -d "$HOME/src/ringojs" && PATH="$HOME/src/ringojs/bin"
-
 export PATH
 
 # ----------------------------------------------------------------------
@@ -100,9 +97,9 @@ case "${OSTYPE}" in
     export CLASSPATH=$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.1.0/clojure-contrib.jar
     
     # Go language
-    export GOROOT=`brew --prefix`/Cellar/go/HEAD
-    export GOARCH=amd64
-    export GOOS=darwin
+    # export GOROOT=`brew --prefix`/Cellar/go/HEAD
+    # export GOARCH=amd64
+    # export GOOS=darwin
     ;;
   linux*)
     # actually ubuntu specific
