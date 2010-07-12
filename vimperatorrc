@@ -1,7 +1,7 @@
 set complete=slS
 set defsearch=google
 set focuscontent
-set guioptions=rbN
+set guioptions=N
 set history=1000
 set hlsearch
 set ignorecase
@@ -29,3 +29,4 @@ silent qmark g http://github.com/
 silent qmark m http://mail.google.com/
 silent qmark r http://reader.google.com/
 silent qmark t http://translate.google.com/
+silent qmark T http://twitter.com/
