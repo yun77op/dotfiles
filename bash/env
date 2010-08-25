@@ -107,3 +107,9 @@ case "${OSTYPE}" in
     export PATH="/usr/lib/jvm/java-6-sun/bin:$PATH"
     ;;
 esac
+
+# GRAILS
+test -d "$HOME/lib/grails" && {
+  export GRAILS_HOME="$HOME/lib/grails"
+  export PATH="$GRAILS_HOME:$PATH"
+}
