@@ -59,10 +59,10 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 # RAILS
 # ----------------------------------------------------------------------
 
-alias sc='script/console'
-alias ss='script/server'
+alias sc='(test -d script && ((test -n "$(script/rails)" && script/rails console) || (test -n "$(script/console)" && script/console))) || echo "not a rails app"'
+alias ss='(test -d script && ((test -n "$(script/rails)" && script/rails server) || (test -n "$(script/server)" && script/server))) || echo "not a rails app"'
 alias pss='RAILS_ENV=production ss'
-alias sg='script/generate'
+alias sg='(test -d script && ((test -n "$(script/rails)" && script/rails generate) || (test -n "$(script/generate)" && script/generate))) || echo "not a rails app"'
 alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
