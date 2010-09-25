@@ -1,3 +1,4 @@
 aliases/host_aliases/host_aliases.yml
 vimperator/info
 vim/doc/tags
+vim/.*
