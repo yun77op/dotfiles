@@ -4,6 +4,12 @@
  
 # we want the various sbins on the path along with /usr/local/bin
 PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+
+# python binaries to PATH
+if [[ -n "$(command -v python)" ]]; then
+  PYTHONBIN=$(echo 'import sys;print sys.prefix+"/bin"'|python)
+  PATH="$PYTHONBIN:$PATH"
+fi
  
 # add ~/bin on PATH if you have it
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
@@ -66,11 +72,11 @@ export EDITOR
  
 # PAGER
 if test -n "$(command -v less)" ; then
-    PAGER="less -FirSwX"
-    MANPAGER="less -FiRswX"
+  PAGER="less -FirSwX"
+  MANPAGER="less -FiRswX"
 else
-    PAGER=more
-    MANPAGER="$PAGER"
+  PAGER=more
+  MANPAGER="$PAGER"
 fi
 export PAGER MANPAGER
 
