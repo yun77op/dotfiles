@@ -14,7 +14,7 @@ fi
 
 # Gem binaries to PATH
 if [[ -n "$(command -v gem)" ]]; then
-  GEMBIN=$(ruby -e "require 'rubygems';puts Gem.bindir")
+  GEMBIN=$(ruby -rubygems -e "puts Gem.bindir")
   PATH="$GEMBIN:$PATH"
 fi
  
