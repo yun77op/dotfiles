@@ -7,8 +7,16 @@ PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
 # python binaries to PATH
 if [[ -n "$(command -v python)" ]]; then
-  PYTHONBIN=$(echo 'import sys;print sys.prefix+"/bin"'|python)
+  PYTHONBIN=$(echo "import sys,os;\
+    print os.path.normpath(os.path.join(sys.prefix,'bin'))"|\
+    python)
   PATH="$PYTHONBIN:$PATH"
+fi
+
+# Gem binaries to PATH
+if [[ -n "$(command -v gem)" ]]; then
+  GEMBIN=$(echo "puts Gem.bindir" | ruby --enable-gems)
+  PATH="$GEMBIN:$PATH"
 fi
  
 # add ~/bin on PATH if you have it
