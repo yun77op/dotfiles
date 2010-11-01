@@ -7,15 +7,14 @@ PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
 # python binaries to PATH
 if [[ -n "$(command -v python)" ]]; then
-  PYTHONBIN=$(echo "import sys,os;\
-    print os.path.normpath(os.path.join(sys.prefix,'bin'))"|\
-    python)
+  PYTHONBIN=$(python -c "import sys,os;\
+    print os.path.normpath(os.path.join(sys.prefix,'bin'))")
   PATH="$PYTHONBIN:$PATH"
 fi
 
 # Gem binaries to PATH
 if [[ -n "$(command -v gem)" ]]; then
-  GEMBIN=$(echo "puts Gem.bindir" | ruby --enable-gems)
+  GEMBIN=$(ruby -e "require 'rubygems';puts Gem.bindir")
   PATH="$GEMBIN:$PATH"
 fi
  
