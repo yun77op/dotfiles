@@ -66,25 +66,19 @@ test -n $SSH_CONNECTION && export DISPLAY=:0.0
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
 
-# EDITOR
 test -n "$(command -v vim)" && EDITOR=vim || EDITOR=vi
-export EDITOR
- 
-# PAGER
-if test -n "$(command -v less)" ; then
-  PAGER="less -FirSwX"
-  MANPAGER="less -FiRswX"
-else
-  PAGER=more
-  MANPAGER="$PAGER"
-fi
-export PAGER MANPAGER
+
+test -n "$(command -v less)" && PAGER="less -FirSwX" || PAGER=more
+
+MANPAGER="$PAGER"
+
+export EDITOR PAGER MANPAGER
 
 # ----------------------------------------------------------------------
 # HISTORY
 # ----------------------------------------------------------------------
 
-# ... and ignore same successive entries.
+# ignore same successive entries.
 export HISTCONTROL=ignoreboth
 
 # ----------------------------------------------------------------------
@@ -112,4 +106,8 @@ test -d "$HOME/lib/grails" && {
 }
 
 # CLOJURE
-export CLASSPATH="$CLASSPATH:/lib/clojure.jar:/lib/clojure-contrib.jar"
+test -f "$HOME/lib/clojure.jar" && {
+  CLASSPATH="$CLASSPATH:$HOME/lib/clojure.jar"
+  CLASSPATH="$CLASSPATH:$HOME/lib/clojure-contrib.jar"
+  export CLASSPATH
+}
