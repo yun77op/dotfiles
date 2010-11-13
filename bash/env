@@ -123,3 +123,13 @@ test -f "$HOME/lib/clojure.jar" && {
 }
 
 export NODE_PATH="/usr/local/lib/node/.npm:$NODE_PATH"
+
+# ----------------------------------------------------------------------
+# MISC
+# ----------------------------------------------------------------------
+
+# ec2
+test -d "$HOME/.ec2" && {
+  export EC2_HOME="$HOME/.ec2"
+  export PATH="$PATH:$EC2_HOME/bin"
+}
