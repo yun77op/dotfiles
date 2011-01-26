@@ -122,7 +122,19 @@ test -f "$HOME/lib/clojure.jar" && {
   export CLASSPATH
 }
 
-export NODE_PATH="/usr/local/lib/node/.npm:$NODE_PATH"
+# LIFT
+test -f "/Applications/liftweb-1.0.1/apache-maven" && {
+  export M2_HOME="/Applications/liftweb-1.0.1/apache-maven"
+  export M2="$M2_HOME/bin"
+  export MAVEN_OPTS="-noverify" 
+  export PATH="$M2:$PATH"
+}
+
+# NPM
+test -d "/usr/local/lib/node/.npm" && {
+  export NODE_PATH="/usr/local/lib/node/.npm:$NODE_PATH"
+  export PATH="/usr/local/share/npm/bin:$PATH"
+}
 
 # ----------------------------------------------------------------------
 # MISC
