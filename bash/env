@@ -132,7 +132,8 @@ test -f "/Applications/liftweb-1.0.1/apache-maven" && {
 
 # NPM
 test -d "/usr/local/lib/node/.npm" && {
-  export NODE_PATH="/usr/local/lib/node/.npm:$NODE_PATH"
+  NPM_PATH=$(cat .npmrc | grep "root = " | cut -f3 -d' ')
+  export NODE_PATH="$NPM_PATH:$NODE_PATH"
   export PATH="/usr/local/share/npm/bin:$PATH"
 }
 
