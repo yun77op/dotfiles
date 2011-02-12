@@ -14,8 +14,8 @@ fi
 
 # Gem binaries to PATH
 if [[ -n "$(command -v gem)" ]]; then
-  GEMBIN=$(ruby -rubygems -e "puts Gem.bindir")
-  PATH="$GEMBIN:$PATH"
+  GEMBIN=$(ruby -e 'begin; require "rubygems"; puts Gem.bindir;rescue LoadError; exit 1; end') && \
+    PATH="$GEMBIN:$PATH"
 fi
 
 # node
