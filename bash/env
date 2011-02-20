@@ -19,7 +19,7 @@ if [[ -n "$(command -v gem)" ]]; then
 fi
 
 # node
-if [[ -n "$(command -v node) "]]; then
+if [[ -n "$(command -v node)" ]]; then
   NODE_PATH="/usr/local/lib/node:$NODE_PATH"
 fi
  
