@@ -8,15 +8,7 @@ puts "#{`ruby -v`}"
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 
-IRB.conf[:PROMPT][:CUSTOM] = {    # name of prompt mode
- :PROMPT_I => ">>> ", # normal prompt
- :PROMPT_S => "  > ",             # prompt for continuated strings
- :PROMPT_C => "  > ",             # prompt for continuated statement
- :RETURN   => "=> %s\n"           # format to return value
-}
-
-# IRB.conf[:PROMPT_MODE] = :SIMPLE
-IRB.conf[:PROMPT_MODE] = :CUSTOM
+IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 IRB.conf[:AUTO_INDENT] = true
 
