@@ -1,0 +1,66 @@
+# from https://github.com/github/gitignore.git
+/CVS/*
+*/CVS/*
+.cvsignore
+*/.cvsignore*.pydevproject
+.project
+.metadata
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.loadpath
+
+# CDT-specific
+.cproject
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+*.ipr
+*.iws
+.idea/
+.*
+!.gitignore
+*~
+*.sw[a-p]
+
+/.hg/*
+*/.hg/*
+.hgignorenbproject/
+.DS_Store
+Icon?
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Ignore tags created by etags and ctags
+TAGS
+tags
+*.tmproj
+*.tmproject
+tmtags
+*.swp
+*.swo
+
+# User-specific files
+*.suo
+*.user
+
+# Windows image file caches
+Thumbs.db 
+
+# Folder config file
+Desktop.ini
+.*.sw[a-z]
+*.un~
+Session.vim

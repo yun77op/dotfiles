@@ -1,6 +1,2 @@
-aliases/host_aliases/host_aliases.yml
-private
-vimperator/info
-vim/doc/tags
-vim/.*
-xmonad/xmonad.errors
+.private
+.vimperator/info
