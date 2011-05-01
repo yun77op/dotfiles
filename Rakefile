@@ -7,7 +7,7 @@ desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
   Dir['*', '.*'].each do |file|
-    next if /Rakefile|README|\.git((?!config))/ =~ file
+    next if /^.{1,2}$|Rakefile|README|\.git((?!config))/ =~ file
     
     if File.exist?(File.join(ENV['HOME'], "#{file.sub('.erb', '')}"))
       if replace_all
@@ -40,7 +40,7 @@ end
 desc "remove the dot files into user's home directory"
 task :clean do
   Dir['*'].each do |file|
-    next if /Rakefile|README|\.git((?!config))/ =~ file
+    next if /^.{1,2}$|Rakefile|README|\.git((?!config))/ =~ file
     `rm -rf "$HOME/#{file.sub('.erb', '')}"`
   end
 end
