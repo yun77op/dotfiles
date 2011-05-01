@@ -11,17 +11,9 @@ export LANG="fr_FR.UTF-8"
 # we want the various sbins on the path along with /usr/local/bin
 PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
-# python binaries to PATH
-if [[ -n "$(command -v python)" ]]; then
-  PYTHONBIN=$(python -c "import sys,os;\
-    print os.path.normpath(os.path.join(sys.prefix,'bin'))")
-  PATH="$PYTHONBIN:$PATH"
-fi
-
-# Gem binaries to PATH
+# Make ruby aware of gems when it runs
 if [[ -n "$(command -v gem)" ]]; then
-  GEMBIN=$(ruby -e 'begin; require "rubygems"; puts Gem.bindir;rescue LoadError; exit 1; end') && \
-    PATH="$GEMBIN:$PATH"
+  export RUBYOPT=rubygems
 fi
 
 # node
