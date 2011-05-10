@@ -16,11 +16,6 @@ if [[ -n "$(command -v gem)" ]]; then
   export RUBYOPT=rubygems
 fi
 
-# node
-if [[ -n "$(command -v node)" ]]; then
-  NODE_PATH="/usr/local/lib/node:$NODE_PATH"
-fi
- 
 # add ~/bin on PATH if you have it
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
  
@@ -95,6 +90,9 @@ export HISTCONTROL=ignoreboth
 # LANGUAGES
 # ----------------------------------------------------------------------
 
+# ERLANG
+test -d "/usr/local/lib/erlang/bin" && PATH="/usr/local/lib/erlang/bin:$PATH"
+
 case "${OSTYPE}" in
   darwin*)
     # java variables
@@ -133,10 +131,14 @@ test -f "/Applications/liftweb-1.0.1/apache-maven" && {
   export PATH="$M2:$PATH"
 }
 
-# NPM
-test -n "$(command -v npm)" && {
-  export NODE_PATH="$(npm root):$NODE_PATH"
-  export PATH="$(npm bin):$PATH"
+# NODE
+test -n "$(command -v node)" && {
+  NODE_PATH="/usr/local/lib/node:$NODE_PATH"
+  # NPM
+  test -n "$(command -v npm)" && {
+    export NODE_PATH="$(npm root):$NODE_PATH"
+    export PATH="$(npm bin):$PATH"
+  }
 }
 
 # ----------------------------------------------------------------------
