@@ -45,7 +45,7 @@
 
 [core]
 	excludesfile = <%= ENV['HOME'] %>/.global_ignore
-	editor = <%= (`which mate` && $?==0) ? "mate -w" : "emacs" %>
+	editor = <%= (`command -v vim` && $?.exitstatus==0 ? `which vim` : `which vi`).chomp %>
 	pager = "less -RciqMSj5"
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
