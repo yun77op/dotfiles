@@ -25,7 +25,6 @@ tramp
 *.ipr
 *.iws
 .idea/
-.*
 !.gitignore
 *~
 *.sw[a-p]
