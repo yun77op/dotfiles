@@ -7,22 +7,15 @@ export LANG="fr_FR.UTF-8"
 # ----------------------------------------------------------------------
 # PATH
 # ----------------------------------------------------------------------
- 
+
 # we want the various sbins on the path along with /usr/local/bin
 PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
 # Make ruby aware of gems when it runs
-if [[ -n "$(command -v gem)" ]]; then
-  export RUBYOPT=rubygems
-fi
+test -n "$(command -v gem)" && export RUBYOPT=rubygems
 
 # add ~/bin on PATH if you have it
 test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
- 
-# add ~/.bin on PATH if you have it
-test -d "$HOME/.bin" && PATH="$HOME/.bin:$PATH"
-
-export PATH
 
 # ----------------------------------------------------------------------
 # MANPATH
@@ -60,7 +53,7 @@ test -n "$dircolors" && {
     eval `$dircolors --sh $COLORS`
 }
 unset dircolors
- 
+
 # ----------------------------------------------------------------------
 # DISPLAY
 # ----------------------------------------------------------------------
@@ -97,13 +90,13 @@ case "${OSTYPE}" in
   darwin*)
     # java variables
     export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
-    export PATH="/System/Library/Frameworks/JavaVM.framework/Home/bin:$PATH"
+    PATH="/System/Library/Frameworks/JavaVM.framework/Home/bin:$PATH"
     export ANT_HOME='/Developer/Java/ant'
     ;;
   linux*)
     # actually ubuntu specific
     export JAVA_HOME='/usr/lib/jvm/java-6-sun'
-    export PATH="/usr/lib/jvm/java-6-sun/bin:$PATH"
+    PATH="/usr/lib/jvm/java-6-sun/bin:$PATH"
     ;;
 esac
 
@@ -113,7 +106,7 @@ export JAVA_OPTS="$JAVA_OPTS -Xmx768m"
 # GRAILS
 test -d "$HOME/lib/grails" && {
   export GRAILS_HOME="$HOME/lib/grails"
-  export PATH="$GRAILS_HOME/bin:$PATH"
+  PATH="$GRAILS_HOME/bin:$PATH"
 }
 
 # CLOJURE
@@ -127,8 +120,8 @@ test -f "$HOME/lib/clojure.jar" && {
 test -f "/Applications/liftweb-1.0.1/apache-maven" && {
   export M2_HOME="/Applications/liftweb-1.0.1/apache-maven"
   export M2="$M2_HOME/bin"
-  export MAVEN_OPTS="-noverify" 
-  export PATH="$M2:$PATH"
+  export MAVEN_OPTS="-noverify"
+  PATH="$M2:$PATH"
 }
 
 # NODE
@@ -136,10 +129,16 @@ test -n "$(command -v node)" && {
   NODE_PATH="/usr/local/lib/node:$NODE_PATH"
   # NPM
   test -n "$(command -v npm)" && {
-    export NODE_PATH="$(npm root):$NODE_PATH"
-    export PATH="$(npm bin):$PATH"
+    export NODE_PATH="$(npm -g root 2>/dev/null):$NODE_PATH"
   }
 }
+
+# # PYTHON
+# test -n "$(command -v python)" && {
+#   PYTHONBIN=$(python -c "import sys,os;\
+#     print os.path.normpath(os.path.join(sys.prefix,'bin'))")
+#   PATH="$PYTHONBIN:$PATH"
+# }
 
 # ----------------------------------------------------------------------
 # MISC
@@ -148,5 +147,9 @@ test -n "$(command -v node)" && {
 # ec2
 test -d "$HOME/.ec2" && {
   export EC2_HOME="$HOME/.ec2"
-  export PATH="$PATH:$EC2_HOME/bin"
+  PATH="$PATH:$EC2_HOME/bin"
 }
+
+# Finally export
+
+export PATH
