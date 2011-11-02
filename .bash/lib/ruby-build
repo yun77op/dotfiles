@@ -1,0 +1,17 @@
+##
+# ruby-build
+
+if ! test -d "$HOME/src/ruby-build"
+then
+  # be sure that sudo is enabled
+  sudo echo "* installing ruby-build"
+  (
+    pushd "$HOME/src"
+    git clone git://github.com/sstephenson/ruby-build.git
+    pushd ruby-build
+    sudo ./install.sh
+    popd
+    popd
+  ) 2>&1 >> /dev/null &
+fi
+

@@ -124,15 +124,6 @@ test -f "/Applications/liftweb-1.0.1/apache-maven" && {
   PATH="$M2:$PATH"
 }
 
-# NODE
-test -n "$(command -v node)" && {
-  NODE_PATH="/usr/local/lib/node:$NODE_PATH"
-  # NPM
-  test -n "$(command -v npm)" && {
-    export NODE_PATH="$(npm -g root 2>/dev/null):$NODE_PATH"
-  }
-}
-
 # # PYTHON
 # test -n "$(command -v python)" && {
 #   PYTHONBIN=$(python -c "import sys,os;\
@@ -149,6 +140,11 @@ test -d "$HOME/.ec2" && {
   export EC2_HOME="$HOME/.ec2"
   PATH="$PATH:$EC2_HOME/bin"
 }
+
+LIB_DIR="$HOME/src/dotfiles/.bash/lib"
+. "$LIB_DIR/rbenv"
+. "$LIB_DIR/ruby-build"
+. "$LIB_DIR/node"
 
 # Finally export
 

@@ -1,0 +1,18 @@
+##
+# rbenv
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+if test -d "$HOME/.rbenv"
+then
+  (
+    pushd "$HOME/.rbenv"
+    git pull
+    popd
+    rbenv rehash
+  ) 2>&1 >> /dev/null &
+else
+  git clone git://github.com/sstephenson/rbenv.git "$HOME/.rbenv"
+fi
+
+eval "$(rbenv init -)"
