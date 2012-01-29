@@ -83,7 +83,7 @@ export HISTCONTROL=ignoreboth
 # LANGUAGES
 # ----------------------------------------------------------------------
 
-# ERLANG
+# erlang
 test -d "/usr/local/lib/erlang/bin" && PATH="/usr/local/lib/erlang/bin:$PATH"
 
 case "${OSTYPE}" in
@@ -103,20 +103,30 @@ esac
 # java heap size set to 768m
 export JAVA_OPTS="$JAVA_OPTS -Xmx768m"
 
-# GRAILS
+# grails
 test -d "$HOME/lib/grails" && {
   export GRAILS_HOME="$HOME/lib/grails"
   PATH="$GRAILS_HOME/bin:$PATH"
 }
 
-# CLOJURE
+# clojure
 test -f "$HOME/lib/clojure.jar" && {
   CLASSPATH="$CLASSPATH:$HOME/lib/clojure.jar"
   CLASSPATH="$CLASSPATH:$HOME/lib/clojure-contrib.jar"
   export CLASSPATH
 }
 
-# LIFT
+# go
+test -n "$(command -v 6g)" && {
+  test -n "$(command -v brew)" && {
+    export GOROOT="$(brew --prefix go)"
+  }
+}
+
+# haskell
+test -n "$(command -v cabal)" && PATH="$PATH:$HOME/.cabal/bin"
+
+# lift
 test -f "/Applications/liftweb-1.0.1/apache-maven" && {
   export M2_HOME="/Applications/liftweb-1.0.1/apache-maven"
   export M2="$M2_HOME/bin"
@@ -124,10 +134,15 @@ test -f "/Applications/liftweb-1.0.1/apache-maven" && {
   PATH="$M2:$PATH"
 }
 
-# NODE
+# luarocks
+test -d "/usr/local/lib/luarocks/bin/" && {
+  $(luarocks path)
+  export PATH="/usr/local/lib/luarocks/bin/:$PATH"
+}
+
+# node
 test -n "$(command -v node)" && {
   NODE_PATH="/usr/local/lib/node:$NODE_PATH"
-  # NPM
   test -n "$(command -v npm)" && {
     export NODE_PATH="$(npm -g root 2>/dev/null):$NODE_PATH"
   }
@@ -150,6 +165,6 @@ test -d "$HOME/.ec2" && {
   PATH="$PATH:$EC2_HOME/bin"
 }
 
-# Finally export
+# Finally export PATH
 
 export PATH
