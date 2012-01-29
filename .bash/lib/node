@@ -1,0 +1,10 @@
+##
+# node
+
+test -n "$(command -v node)" && {
+  NODE_PATH="/usr/local/lib/node:$NODE_PATH"
+  test ! -n "$(command -v npm)" && {
+    curl http://npmjs.org/install.sh | sh
+  }
+  export NODE_PATH="$(npm -g root 2>/dev/null):$NODE_PATH"
+}

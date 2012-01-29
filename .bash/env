@@ -140,14 +140,6 @@ test -d "/usr/local/lib/luarocks/bin/" && {
   export PATH="/usr/local/lib/luarocks/bin/:$PATH"
 }
 
-# node
-test -n "$(command -v node)" && {
-  NODE_PATH="/usr/local/lib/node:$NODE_PATH"
-  test -n "$(command -v npm)" && {
-    export NODE_PATH="$(npm -g root 2>/dev/null):$NODE_PATH"
-  }
-}
-
 # # PYTHON
 # test -n "$(command -v python)" && {
 #   PYTHONBIN=$(python -c "import sys,os;\
@@ -164,6 +156,9 @@ test -d "$HOME/.ec2" && {
   export EC2_HOME="$HOME/.ec2"
   PATH="$PATH:$EC2_HOME/bin"
 }
+
+LIB_DIR="$HOME/src/dotfiles/.bash/lib"
+. "$LIB_DIR/node"
 
 # Finally export PATH
 
