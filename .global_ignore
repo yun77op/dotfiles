@@ -56,10 +56,14 @@ tmtags
 *.user
 
 # Windows image file caches
-Thumbs.db 
+Thumbs.db
 
 # Folder config file
 Desktop.ini
 .*.sw[a-z]
 *.un~
 Session.vim
+
+# rake
+/.rake_tasks\~
+
