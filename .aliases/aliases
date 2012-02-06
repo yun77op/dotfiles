@@ -17,7 +17,7 @@ alias svnprop='svn propset svn:keywords Id,Source,Author,HeadURL,Revision,Date'
 # ----------------------------------------------------------------------
 
 alias cp='cp -R'
-test -n "$(command -v lftp)"  && alias ftp='lftp'
+test -n "$(command -v lftp)" && alias ftp='lftp'
 test -n "$(command -v less)" && alias more='less -RciqMSj5'
 test -n "$(command -v vim)"  && alias vi='vim'
 alias ec='emacsclient -n'
@@ -33,12 +33,16 @@ m () {
 # LS
 # ----------------------------------------------------------------------
 
-alias l="ls -lAhF"
-alias ll="ls -alF"
+alias l='ls -lAhF'
+if test -n "$(command -v ls++)"; then
+  alias ll='LC_ALL=en_US.UTF-8 LANG=en ls++'
+else
+  alias ll='ls -alF'
+fi
 alias la='ls -A'
 alias lsd='ls -d *(-/DN)'
-alias lrt="ls -lrt"
-alias recent="ls -lAt | head"
+alias lrt='ls -lrt'
+alias recent='ls -lAt | head'
 
 # ----------------------------------------------------------------------
 # RAILS
