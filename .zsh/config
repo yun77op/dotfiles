@@ -29,6 +29,10 @@ setopt CORRECT
 setopt COMPLETE_IN_WORD
 setopt PRINT_EXIT_VALUE # Print the exit value of programs with non-zero exit status.
 
+# cd’ing to frequently-used directories
+setopt auto_cd
+cdpath=($HOME/src)
+
 # -------------------------------------------------------------------
 # HISTORY
 # -------------------------------------------------------------------
