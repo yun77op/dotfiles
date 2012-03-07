@@ -22,6 +22,7 @@ test -n "$(command -v less)" && alias more='less -RciqMSj5'
 test -n "$(command -v vim)"  && alias vi='vim'
 alias ec='emacsclient -n'
 alias lines='wc -l'
+alias serve='python -m SimpleHTTPServer 8888'
 alias 'h?'='history | grep -i'
 alias 'ps?'='ps ax | grep -i'
 
@@ -35,7 +36,7 @@ m () {
 
 alias l='ls -lAhF'
 if test -n "$(command -v ls++)"; then
-  alias ll='LC_ALL=en_US.UTF-8 LANG=en ls++'
+  alias ll='LC_ALL=en_US.UTF-8 LANG=en ls++ -al'
 else
   alias ll='ls -alF'
 fi
@@ -43,46 +44,6 @@ alias la='ls -A'
 alias lsd='ls -d *(-/DN)'
 alias lrt='ls -lrt'
 alias recent='ls -lAt | head'
-
-# ----------------------------------------------------------------------
-# RAILS
-# ----------------------------------------------------------------------
-
-test -n "$(command -v rails)" && {
-  alias rails.sc='(test -d script && ((test -n "$(script/rails)" && script/rails console) || (test -n "$(script/console)" && script/console))) || echo "not a rails app"'
-  alias rails.ss='(test -d script && ((test -n "$(script/rails)" && script/rails server) || (test -n "$(script/server)" && script/server))) || echo "not a rails app"'
-  alias rails.pss='RAILS_ENV=production ss'
-  alias rails.sg='(test -d script && ((test -n "$(script/rails)" && script/rails generate) || (test -n "$(script/generate)" && script/generate))) || echo "not a rails app"'
-  alias rails.tlog='tail -f log/development.log'
-  alias rails.scaffold='script/generate nifty_scaffold'
-  alias rails.migrate='rake db:migrate db:test:clone'
-  alias rails.rst='touch tmp/restart.txt'
-}
-
-# ----------------------------------------------------------------------
-# CURL
-# ----------------------------------------------------------------------
-
-alias xmlget="curl -X GET -H 'Accept: application/xml'"
-alias jsonget="curl -X GET -H 'Accept: application/json'"
-alias xmlpost="curl -X POST -H 'Accept: application/xml'"
-alias xmlput="curl -X PUT -H 'Accept: application/xml'"
-alias xmldelete="curl -X DELETE -H 'Accept: application/xml'"
-
-# ----------------------------------------------------------------------
-# POSTGRESQL
-# ----------------------------------------------------------------------
-
-test -n "$(command -v postgres)" && {
-  export PG_DIR="/usr/local/var/db/postgres"
-  alias pg.create="sudo su postgres -c 'initdb $PG_DIR'"
-  alias pg.kill="sudo su postgres -c 'pg_ctl stop -m immediate -D $PG_DIR'"
-  alias pg.restart="sudo su postgres -c 'pg_ctl restart -l logfile -D $PG_DIR'"
-  alias pg.start="sudo su postgres -c 'pg_ctl start -l logfile -D $PG_DIR'"
-  alias pg.stop="sudo su postgres -c 'pg_ctl stop -s -m fast -D $PG_DIR'"
-  # convert data output to csv
-  alias pg2csv='psql -F\; -A --pset footer'
-}
 
 # ----------------------------------------------------------------------
 # JAVA ALIASES
