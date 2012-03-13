@@ -14,8 +14,8 @@ PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 # Make ruby aware of gems when it runs
 test -n "$(command -v gem)" && export RUBYOPT=rubygems
 
-# add ~/bin on PATH if you have it
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
+# add ~/bin on PATH
+PATH="$HOME/bin:$PATH"
 
 # ----------------------------------------------------------------------
 # MANPATH
@@ -66,7 +66,7 @@ test -n $SSH_CONNECTION && export DISPLAY=:0.0
 
 test -n "$(command -v vim)" && EDITOR=vim || EDITOR=vi
 
-test -n "$(command -v less)" && PAGER="less -FirSwX" || PAGER=more
+test -n "$(command -v less)" && PAGER=less || PAGER=more
 
 MANPAGER="$PAGER"
 
@@ -84,7 +84,8 @@ export HISTCONTROL=ignoreboth
 # ----------------------------------------------------------------------
 
 # erlang
-test -d "/usr/local/lib/erlang/bin" && PATH="/usr/local/lib/erlang/bin:$PATH"
+test -d "/usr/local/lib/erlang/bin" && \
+  PATH="/usr/local/lib/erlang/bin:$PATH"
 
 case "${OSTYPE}" in
   darwin*)
@@ -103,12 +104,6 @@ esac
 # java heap size set to 768m
 export JAVA_OPTS="$JAVA_OPTS -Xmx768m"
 
-# grails
-test -d "$HOME/lib/grails" && {
-  export GRAILS_HOME="$HOME/lib/grails"
-  PATH="$GRAILS_HOME/bin:$PATH"
-}
-
 # clojure
 test -f "$HOME/lib/clojure.jar" && {
   CLASSPATH="$CLASSPATH:$HOME/lib/clojure.jar"
@@ -126,26 +121,18 @@ test -n "$(command -v 6g)" && {
 # haskell
 test -n "$(command -v cabal)" && PATH="$PATH:$HOME/.cabal/bin"
 
-# lift
-test -f "/Applications/liftweb-1.0.1/apache-maven" && {
-  export M2_HOME="/Applications/liftweb-1.0.1/apache-maven"
-  export M2="$M2_HOME/bin"
-  export MAVEN_OPTS="-noverify"
-  PATH="$M2:$PATH"
-}
-
 # luarocks
 test -d "/usr/local/lib/luarocks/bin/" && {
   $(luarocks path)
-  export PATH="/usr/local/lib/luarocks/bin/:$PATH"
+  PATH="/usr/local/lib/luarocks/bin/:$PATH"
 }
 
 # # PYTHON
-# test -n "$(command -v python)" && {
-#   PYTHONBIN=$(python -c "import sys,os;\
-#     print os.path.normpath(os.path.join(sys.prefix,'bin'))")
-#   PATH="$PYTHONBIN:$PATH"
-# }
+test -n "$(command -v python)" && {
+  PYTHONBIN=$(python -c "import sys,os;\
+    print os.path.normpath(os.path.join(sys.prefix,'bin'))")
+  PATH="/usr/local/share/python:$PYTHONBIN:$PATH"
+}
 
 # ----------------------------------------------------------------------
 # MISC
@@ -163,3 +150,4 @@ LIB_DIR="$HOME/src/dotfiles/.bash/lib"
 # Finally export PATH
 
 export PATH
+
