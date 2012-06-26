@@ -49,8 +49,7 @@ test -n "$dircolors" && {
   COLORS=/etc/DIR_COLORS
   test -e "/etc/DIR_COLORS.$TERM" && COLORS="/etc/DIR_COLORS.$TERM"
   test -e "$HOME/.dircolors" && COLORS="$HOME/.dircolors"
-  test ! -e "$COLORS" && COLORS=
-    eval `$dircolors --sh $COLORS`
+  test ! -e "$COLORS" && COLORS=eval `$dircolors --sh $COLORS`
 }
 unset dircolors
 
@@ -84,8 +83,7 @@ export HISTCONTROL=ignoreboth
 # ----------------------------------------------------------------------
 
 # erlang
-test -d "/usr/local/lib/erlang/bin" && \
-  PATH="/usr/local/lib/erlang/bin:$PATH"
+PATH="/usr/local/lib/erlang/bin:$PATH"
 
 case "${OSTYPE}" in
   darwin*)
@@ -104,30 +102,20 @@ esac
 # java heap size set to 768m
 export JAVA_OPTS="$JAVA_OPTS -Xmx768m"
 
-# clojure
-test -f "$HOME/lib/clojure.jar" && {
-  CLASSPATH="$CLASSPATH:$HOME/lib/clojure.jar"
-  CLASSPATH="$CLASSPATH:$HOME/lib/clojure-contrib.jar"
-  export CLASSPATH
-}
-
 # go
-test -n "$(command -v 6g)" && {
-  test -n "$(command -v brew)" && {
-    export GOROOT="$(brew --prefix go)"
-  }
-}
+export GOROOT="$HOME/src/go"
+PATH="$GOROOT/bin:$PATH"
 
 # haskell
-test -n "$(command -v cabal)" && PATH="$PATH:$HOME/.cabal/bin"
+PATH="$HOME/.cabal/bin:$PATH"
 
 # luarocks
-test -d "/usr/local/lib/luarocks/bin/" && {
+test -n $(command -v luarocks) && {
   $(luarocks path)
   PATH="/usr/local/lib/luarocks/bin/:$PATH"
 }
 
-# # PYTHON
+# python
 test -n "$(command -v python)" && {
   PYTHONBIN=$(python -c "import sys,os;\
     print os.path.normpath(os.path.join(sys.prefix,'bin'))")
@@ -139,10 +127,8 @@ test -n "$(command -v python)" && {
 # ----------------------------------------------------------------------
 
 # ec2
-test -d "$HOME/.ec2" && {
-  export EC2_HOME="$HOME/.ec2"
-  PATH="$PATH:$EC2_HOME/bin"
-}
+export EC2_HOME="$HOME/.ec2"
+PATH="$PATH:$EC2_HOME/bin"
 
 LIB_DIR="$HOME/src/dotfiles/.bash/lib"
 . "$LIB_DIR/node"
