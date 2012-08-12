@@ -11,7 +11,6 @@ export LANG="fr_FR.UTF-8"
 # we want the various sbins on the path along with /usr/local/bin
 PATH="$HOME/bin:/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
-
 # ----------------------------------------------------------------------
 # MANPATH
 # ----------------------------------------------------------------------
@@ -45,8 +44,7 @@ test -n "$dircolors" && {
   COLORS=/etc/DIR_COLORS
   test -e "/etc/DIR_COLORS.$TERM" && COLORS="/etc/DIR_COLORS.$TERM"
   test -e "$HOME/.dircolors" && COLORS="$HOME/.dircolors"
-  test ! -e "$COLORS" && COLORS=
-    eval `$dircolors --sh $COLORS`
+  test ! -e "$COLORS" && COLORS=eval `$dircolors --sh $COLORS`
 }
 
 unset dircolors
@@ -98,6 +96,9 @@ case "${OSTYPE}" in
     ;;
 esac
 
+# java heap size set to 768m
+export JAVA_OPTS="$JAVA_OPTS -Xmx768m"
+
 # go
 export GOROOT="$HOME/src/go"
 PATH="$GOROOT/bin:$PATH"
@@ -123,6 +124,21 @@ test -n "$(command -v python)" && {
 # Make ruby aware of gems when it runs
 export RUBYOPT=rubygems
 
+PATH="$HOME/.cabal/bin:$PATH"
+
+# luarocks
+test -n $(command -v luarocks) && {
+  $(luarocks path)
+  PATH="/usr/local/lib/luarocks/bin/:$PATH"
+}
+
+# python
+test -n "$(command -v python)" && {
+  PYTHONBIN=$(python -c "import sys,os;\
+    print os.path.normpath(os.path.join(sys.prefix,'bin'))")
+  PATH="/usr/local/share/python:$PYTHONBIN:$PATH"
+}
+
 # ----------------------------------------------------------------------
 # MISC
 # ----------------------------------------------------------------------
@@ -134,3 +150,4 @@ PATH="$PATH:$EC2_HOME/bin"
 # Finally export PATH
 
 export PATH
+

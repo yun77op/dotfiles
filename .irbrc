@@ -1,6 +1,13 @@
 #!/usr/bin/ruby
+
+require 'rubygems'
 require 'irb/completion'
 require 'irb/ext/save-history'
+begin
+  require 'interactive_editor'
+rescue LoadError
+end
+
 
 puts "#{`ruby -v`}"
 
@@ -16,7 +23,7 @@ class Object
   def local_methods(obj = self)
     (obj.methods - obj.class.superclass.instance_methods).sort
   end
-  
+
   # print documentation
   #
   #   ri 'Array#pop'
