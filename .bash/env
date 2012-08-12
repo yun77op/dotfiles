@@ -9,13 +9,8 @@ export LANG="fr_FR.UTF-8"
 # ----------------------------------------------------------------------
 
 # we want the various sbins on the path along with /usr/local/bin
-PATH="/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+PATH="$HOME/bin:/usr/local/bin:$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
-# Make ruby aware of gems when it runs
-test -n "$(command -v gem)" && export RUBYOPT=rubygems
-
-# add ~/bin on PATH if you have it
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
 
 # ----------------------------------------------------------------------
 # MANPATH
@@ -45,6 +40,7 @@ if test -n "$(command -v gdircolors)"; then
 elif test -n "$(command -v dircolors)"; then
   dircolors=`which dircolors`
 fi
+
 test -n "$dircolors" && {
   COLORS=/etc/DIR_COLORS
   test -e "/etc/DIR_COLORS.$TERM" && COLORS="/etc/DIR_COLORS.$TERM"
@@ -52,6 +48,7 @@ test -n "$dircolors" && {
   test ! -e "$COLORS" && COLORS=
     eval `$dircolors --sh $COLORS`
 }
+
 unset dircolors
 
 # ----------------------------------------------------------------------
@@ -64,9 +61,9 @@ test -n $SSH_CONNECTION && export DISPLAY=:0.0
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
 
-test -n "$(command -v vim)" && EDITOR=vim || EDITOR=vi
+EDITOR=vi
 
-test -n "$(command -v less)" && PAGER="less -FirSwX" || PAGER=more
+test -n "$(command -v less)" && PAGER=less || PAGER=more
 
 MANPAGER="$PAGER"
 
@@ -84,8 +81,9 @@ export HISTCONTROL=ignoreboth
 # ----------------------------------------------------------------------
 
 # erlang
-test -d "/usr/local/lib/erlang/bin" && PATH="/usr/local/lib/erlang/bin:$PATH"
+PATH="/usr/local/lib/erlang/bin:$PATH"
 
+# java
 case "${OSTYPE}" in
   darwin*)
     # java variables
@@ -100,65 +98,38 @@ case "${OSTYPE}" in
     ;;
 esac
 
-# java heap size set to 768m
-export JAVA_OPTS="$JAVA_OPTS -Xmx768m"
-
-# grails
-test -d "$HOME/lib/grails" && {
-  export GRAILS_HOME="$HOME/lib/grails"
-  PATH="$GRAILS_HOME/bin:$PATH"
-}
-
-# clojure
-test -f "$HOME/lib/clojure.jar" && {
-  CLASSPATH="$CLASSPATH:$HOME/lib/clojure.jar"
-  CLASSPATH="$CLASSPATH:$HOME/lib/clojure-contrib.jar"
-  export CLASSPATH
-}
-
 # go
-test -n "$(command -v 6g)" && {
-  test -n "$(command -v brew)" && {
-    export GOROOT="$(brew --prefix go)"
-  }
-}
+export GOROOT="$HOME/src/go"
+PATH="$GOROOT/bin:$PATH"
 
 # haskell
-test -n "$(command -v cabal)" && PATH="$PATH:$HOME/.cabal/bin"
-
-# lift
-test -f "/Applications/liftweb-1.0.1/apache-maven" && {
-  export M2_HOME="/Applications/liftweb-1.0.1/apache-maven"
-  export M2="$M2_HOME/bin"
-  export MAVEN_OPTS="-noverify"
-  PATH="$M2:$PATH"
-}
+PATH="$PATH:$HOME/.cabal/bin"
 
 # luarocks
-test -d "/usr/local/lib/luarocks/bin/" && {
-  $(luarocks path)
-  export PATH="/usr/local/lib/luarocks/bin/:$PATH"
+$(luarocks path)
+PATH="/usr/local/lib/luarocks/bin:$PATH"
+
+# node
+export NODE_PATH=$(npm root -g)
+
+# python
+test -n "$(command -v python)" && {
+  PYTHONBIN=$(python -c "import sys,os;\
+    print os.path.normpath(os.path.join(sys.prefix,'bin'))")
+  PATH="$PYTHONBIN:$PATH"
 }
 
-# # PYTHON
-# test -n "$(command -v python)" && {
-#   PYTHONBIN=$(python -c "import sys,os;\
-#     print os.path.normpath(os.path.join(sys.prefix,'bin'))")
-#   PATH="$PYTHONBIN:$PATH"
-# }
+# ruby
+# Make ruby aware of gems when it runs
+export RUBYOPT=rubygems
 
 # ----------------------------------------------------------------------
 # MISC
 # ----------------------------------------------------------------------
 
 # ec2
-test -d "$HOME/.ec2" && {
-  export EC2_HOME="$HOME/.ec2"
-  PATH="$PATH:$EC2_HOME/bin"
-}
-
-LIB_DIR="$HOME/src/dotfiles/.bash/lib"
-. "$LIB_DIR/node"
+export EC2_HOME="$HOME/.ec2"
+PATH="$PATH:$EC2_HOME/bin"
 
 # Finally export PATH
 

@@ -35,11 +35,7 @@ m () {
 # ----------------------------------------------------------------------
 
 alias l='ls -lAhF'
-if test -n "$(command -v ls++)"; then
-  alias ll='LC_ALL=en_US.UTF-8 LANG=en ls++ -al'
-else
-  alias ll='ls -alF'
-fi
+alias ll='ls -alF'
 alias la='ls -A'
 alias lsd='ls -d *(-/DN)'
 alias lrt='ls -lrt'

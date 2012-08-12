@@ -7,13 +7,18 @@
 
 --type-add=css=.less,.sass,.styl
 
+--type-set
+coffeescript=.coffee
+
+--ignore-dir=.bundle
+--ignore-dir=cache
 --ignore-dir=gems
 --ignore-dir=plugins
---ignore-dir=rails
 --ignore-dir=log
---ignore-dir=tmp
+--ignore-dir=node_modules
+--ignore-dir=rails
 --ignore-dir=scratch_directory
---ignore-dir=cache
+--ignore-dir=tmp
 --type-set=bin=.idx,.pack,.sqlite3,.sqlite3-journal,.rdb,.swf,.gif,.png,.ico,.jpg,.jpeg,.tiff,.pdf,.mp3,.JPG,.sqlite,.dat,.crt
 --nobin
 
