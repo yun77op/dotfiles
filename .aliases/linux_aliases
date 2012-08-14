@@ -1,2 +1,6 @@
+alias emacs='emacs -nw'
 alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
-# alias open='xdg-open'
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+alias previews=feh
+alias yt=yaourt

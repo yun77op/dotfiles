@@ -17,6 +17,7 @@ alias lines='wc -l'
 alias serve='python -m SimpleHTTPServer 8888'
 alias 'h?'='history | grep -i'
 alias 'ps?'='ps ax | grep -i'
+alias vi=vim
 
 m () {
   mkdir -p $1 && cd $1
