@@ -101,10 +101,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym 113 resize shrink width 10 px or 10 ppt
-        bindsym 116 resize grow height 10 px or 10 ppt
-        bindsym 111 resize shrink height 10 px or 10 ppt
-        bindsym 114 resize grow width 10 px or 10 ppt
+        bindsym Right resize shrink width 1 px or 1 ppt
+        bindsym Top resize grow height 1 px or 1 ppt
+        bindsym Down resize shrink height 1 px or 1 ppt
+        bindsym Left resize grow width 1 px or 1 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -138,7 +138,7 @@ bindcode 232 exec xbacklight -dec 10
 bindcode 233 exec xbacklight -inc 10
 
 # assignements
-assign [class="(?i)nixnote"] 9
+assign [id="(?i)nixnote"] 9
 
 # exec --no-startup-id nm-appletex
 
