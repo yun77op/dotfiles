@@ -1,8 +1,10 @@
 # ----------------------------------------------------------------------
-# LANG
+# LOCALES
 # ----------------------------------------------------------------------
 
-export LANG="fr_FR.UTF-8"
+export KEYMAP="fr-latin9"
+export LANG="fr_FR.UTF8"
+export LOCALE="fr_FR.UTF8"
 
 # ----------------------------------------------------------------------
 # PATH
@@ -59,9 +61,9 @@ test -n $SSH_CONNECTION && export DISPLAY=:0.0
 # PAGER / EDITOR
 # ----------------------------------------------------------------------
 
-EDITOR=vi
+EDITOR=vim
 
-test -n "$(command -v less)" && PAGER=less || PAGER=more
+PAGER=less
 
 MANPAGER="$PAGER"
 
@@ -80,6 +82,7 @@ export HISTCONTROL=ignoreboth
 
 # erlang
 PATH="/usr/local/lib/erlang/bin:$PATH"
+PATH="$HOME/src/rebar:$PATH"
 
 # java
 case "${OSTYPE}" in
@@ -90,9 +93,7 @@ case "${OSTYPE}" in
     export ANT_HOME='/Developer/Java/ant'
     ;;
   linux*)
-    # actually ubuntu specific
-    export JAVA_HOME='/usr/lib/jvm/java-6-sun'
-    PATH="/usr/lib/jvm/java-6-sun/bin:$PATH"
+    # JAVA_HOME and PATH are up to date in Arch
     ;;
 esac
 
@@ -113,13 +114,6 @@ PATH="/usr/local/lib/luarocks/bin:$PATH"
 # node
 export NODE_PATH=$(npm root -g)
 
-# python
-test -n "$(command -v python)" && {
-  PYTHONBIN=$(python -c "import sys,os;\
-    print os.path.normpath(os.path.join(sys.prefix,'bin'))")
-  PATH="$PYTHONBIN:$PATH"
-}
-
 # ruby
 # Make ruby aware of gems when it runs
 export RUBYOPT=rubygems
@@ -130,13 +124,6 @@ PATH="$HOME/.cabal/bin:$PATH"
 test -n $(command -v luarocks) && {
   $(luarocks path)
   PATH="/usr/local/lib/luarocks/bin/:$PATH"
-}
-
-# python
-test -n "$(command -v python)" && {
-  PYTHONBIN=$(python -c "import sys,os;\
-    print os.path.normpath(os.path.join(sys.prefix,'bin'))")
-  PATH="/usr/local/share/python:$PYTHONBIN:$PATH"
 }
 
 # ----------------------------------------------------------------------
