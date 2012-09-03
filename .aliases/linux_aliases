@@ -1,4 +1,3 @@
-alias emacs='emacs -nw'
 alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'

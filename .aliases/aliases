@@ -14,14 +14,12 @@ alias cp='cp -R'
 test -n "$(command -v less)" && alias more='less -RciqMSj5'
 alias ec='emacsclient -n'
 alias lines='wc -l'
-alias serve='python -m SimpleHTTPServer 8888'
 alias 'h?'='history | grep -i'
 alias 'ps?'='ps ax | grep -i'
+alias s=sudo
 alias vi=vim
 
-m () {
-  mkdir -p $1 && cd $1
-}
+m () { mkdir -p $1 && cd $1; }
 
 # ----------------------------------------------------------------------
 # LS
