@@ -1,0 +1,13 @@
+#/bin/bash
+
+function calc() { echo $[$*]; }
+
+file='/sys/devices/platform/samsung/leds/samsung::kbd_backlight/brightness'
+max=8
+min=0
+val="$(calc $(cat $file) + $1)"
+
+test $val -gt $max && val=$max
+test $val -lt $min && val=$min
+
+sudo sh -c "echo $val > $file"
