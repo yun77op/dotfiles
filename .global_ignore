@@ -50,6 +50,7 @@ tags
 tmtags
 *.swp
 *.swo
+*.taghl
 
 # User-specific files
 *.suo
